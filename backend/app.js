@@ -7,6 +7,7 @@ const helmet = require('helmet');
 const cors = require('cors')
 
 var indexRouter = require('./routes/index');
+var cardRouter = require('./routes/card');
 
 var app = express();
 
@@ -20,5 +21,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+
+app.use('/card', cardRouter);
 
 module.exports = app;
