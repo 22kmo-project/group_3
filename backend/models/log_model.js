@@ -10,12 +10,12 @@ const log = {
     },
 	
 	add: function (data, callback) {
-        bcrypt.hash(data.pin, saltRounds, function (err, hash) {
-            return db.query(
-                'insert into card (id, account_number, card_number, event, account, datetime) values(?,?,?,?,?,?)',
-                [data.id, data.account_number, data.card_number, Event, data.account, data.datetime], // Määrittele lisättävät judut
-                callback);
-        });
+        
+        return db.query(
+        'insert into card (id, account_number, card_number, event, account, datetime) values(?,?,?,?,?,?)',
+        [data.id, data.account_number, data.card_number, Event, data.account, data.datetime], // Määrittele lisättävät judut
+        callback);
+        
     },
 	
     delete: function (id, callback) {
@@ -23,13 +23,13 @@ const log = {
     },
 	
     update: function (log, data, callback) {   // määrittele updaten kriteerit, mitä muokataan
-        bcrypt.hash(data.pin, saltRounds, function (err, hash) {
-            return db.query(
-                'insert into card (id, account_number, card_number, event, account, datetime)',
-                [data.id, data.account_number, data.card_number, Event, data.account, data.datetime], // Määrittele lisättävät judut
-                callback);
-        });
-    }
-};
+      
+        return db.query(
+        'insert into card (id, account_number, card_number, event, account, datetime)',
+        [data.id, data.account_number, data.card_number, Event, data.account, data.datetime], // Määrittele lisättävät judut
+        callback);
+        }
+    };
+
 
 module.exports = log;
