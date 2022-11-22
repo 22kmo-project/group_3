@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const log = require('../models/log_model');
+const log = require('../models/log_model.js');
 
 router.get('/:id',
  function(request, response) {
@@ -12,8 +12,17 @@ router.get('/:id',
         response.json(dbResult[0]);
       }
     });
+  } else {
+    log.getAll(function(err, dbResult) {
+      if (err) {
+        response.json(err);
+      } else {
+        response.json(dbResult);
+      }
+    });
   }
 });
+
 
 router.post('/', 
 function(request, response) {
@@ -45,7 +54,7 @@ function(request, response) {
     if (err) {
       response.json(err);
     } else {
-      response.json(dbResult);
+      response.json(dbResult.affectedRows);
     }
   });
 });
