@@ -9,7 +9,7 @@ const customer = {
   },
   add: function(customer, callback) {
     return db.query(
-      'insert into customer (firstname,lastname,street,postcode,city,phone) values(?,?,?,?,?,?)',
+      'insert into customer (id,firstname,lastname,street,postcode,city,phone) values(?,?,?,?,?,?,?)',
       [, customer.firstname, customer.lastname, customer.street, customer.postcode,
          customer.city, customer.phone],
       callback
