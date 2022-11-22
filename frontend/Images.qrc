@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>button.png</file>
+        <file>button2.png</file>
+        <file>../../Nosto-automaatit.png</file>
+        <file>otti2.png</file>
+        <file>backgroup.png</file>
+        <file>default.png</file>
+    </qresource>
+    <qresource prefix="/"/>
+</RCC>

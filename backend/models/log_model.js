@@ -1,35 +1,25 @@
 const db = require('../database');
-const bcrypt = require('bcryptjs');
-const { eventNames } = require('../app');
-
-const saltRounds = 10;
-
 const log = {
-    getBylog: function (id, callback) {
-        return db.query('select * from log where id=?', [id], callback); // tässä menossa
-    },
-	
-	add: function (data, callback) {
-        
-        return db.query(
-        'insert into card (id, account_number, card_number, event, account, datetime) values(?,?,?,?,?,?)',
-        [data.id, data.account_number, data.card_number, Event, data.account, data.datetime], // Määrittele lisättävät judut
-        callback);
-        
-    },
-	
-    delete: function (id, callback) {
-        return db.query('delete from log where id=?', [id], callback); //muokattu
-    },
-	
-    update: function (log, data, callback) {   // määrittele updaten kriteerit, mitä muokataan
-      
-        return db.query(
-        'insert into card (id, account_number, card_number, event, account, datetime)',
-        [data.id, data.account_number, data.card_number, Event, data.account, data.datetime], // Määrittele lisättävät judut
-        callback);
-        }
-    };
-
-
+  getById: function(id, callback) {
+    return db.query('select * from log where id=?', [id], callback);
+  },
+ 
+  add: function(log, callback) {
+    return db.query(
+        'insert into log(id, account_number, card_number, event, account, datetime) values(?,?,?,?,?,?)',
+        [log.id, log.account_number, log.card_number, Event, log.account, log.datetime], // Määrittele lisättävät judut
+        callback
+        );
+  },
+  delete: function(id, callback) {
+    return db.query('delete from log where id=?', [id], callback);
+  },
+  update: function(log, callback) {
+    return db.query(
+        'insert into log(id, account_number, card_number, event, account, datetime) values(?,?,?,?,?,?)',
+        [log.id, log.account_number, log.card_number, Event, log.account, log.datetime], // Määrittele lisättävät judut
+        callback
+        );
+  }
+};
 module.exports = log;
