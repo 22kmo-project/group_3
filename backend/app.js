@@ -9,6 +9,7 @@ const cors = require('cors')
 var indexRouter = require('./routes/index');
 var cardRouter = require('./routes/card');
 var cardTypeRouter = require('./routes/card_type');
+var customerRouter = require('./routes/customer');
 
 var app = express();
 
@@ -25,5 +26,6 @@ app.use('/', indexRouter);
 
 app.use('/card', cardRouter);
 app.use('/card-type', cardTypeRouter);
+app.use('/customer', customerRouter);
 
 module.exports = app;
