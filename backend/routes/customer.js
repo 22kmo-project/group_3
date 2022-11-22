@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const customer = require('../models/customer_model.js');
 
-router.get('/:id?',
+router.get('/:id',
  function(request, response) {
   if (request.params.id) {
     customer.getById(request.params.id, function(err, dbResult) {
