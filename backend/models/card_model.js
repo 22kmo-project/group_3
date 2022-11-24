@@ -28,7 +28,11 @@ const card = {
                 [hash, data.is_active, cardNumber],
                 callback);
         });
-    }
+    },
+	
+	checkPin: function (card_number, callback) {
+		return db.query('select pin from card where card_number=?', [card_number], callback);
+	}
 };
 
 module.exports = card;
