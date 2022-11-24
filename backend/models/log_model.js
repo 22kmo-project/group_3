@@ -6,8 +6,8 @@ const log = {
  
   add: function(log, callback) {
     return db.query(
-        'insert into log(id, account_number, card_number, event, account, datetime) values(?,?,?,?,?,?)',
-        [log.id, log.account_number, log.card_number, Event, log.account, log.datetime], // Määrittele lisättävät judut
+        'insert into log(account_number, card_number, event, amount, datetime) values(?,?,?,?,?)',
+        [log.account_number, log.card_number, log.event, log.amount, log.datetime], // Määrittele lisättävät judut
         callback
         );
   },
@@ -16,8 +16,8 @@ const log = {
   },
   update: function(log, callback) {
     return db.query(
-        'insert into log(id, account_number, card_number, event, account, datetime) values(?,?,?,?,?,?)',
-        [log.id, log.account_number, log.card_number, Event, log.account, log.datetime], // Määrittele lisättävät judut
+        'insert into log(account_number, card_number, event, amount, datetime) values(?,?,?,?,?)',
+        [log.account_number, log.card_number, log.event, log.amount, log.datetime], // Määrittele lisättävät judut
         callback
         );
   }
