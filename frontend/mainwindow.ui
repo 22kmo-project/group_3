@@ -105,19 +105,6 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>450</x>
-        <y>300</y>
-        <width>81</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>enter -&gt;&gt;</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_7">
       <property name="geometry">
        <rect>
@@ -341,9 +328,9 @@
      <widget class="QLabel" name="label_11">
       <property name="geometry">
        <rect>
-        <x>-10</x>
+        <x>-80</x>
         <y>130</y>
-        <width>581</width>
+        <width>651</width>
         <height>231</height>
        </rect>
       </property>
