@@ -91,3 +91,23 @@ void MainWindow::on_LukitseKortti_clicked()
 
 }
 
+
+
+
+void MainWindow::on_TakaisinN_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+
+void MainWindow::on_TakaisinT_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+
+void MainWindow::on_TakaisinS_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+

@@ -35,11 +35,14 @@ router.post('/',
             console.log("card_number or pin missing");
             response.send(false);
         }
+        
     });
 
+    
 function generateAccessToken(username) {
     //dotenv.config();
     return jwt.sign(username, "aPGZ6OvMh0ILVCsgpqC93X6w0Y7vZdP/+rgnmKFncA0lcb0R1q2grvvOAHgSEkF/iEJaMocOzYaKIk3HEGlXgw==", { expiresIn: '1800s' });
+
 }
 
 module.exports = router;
