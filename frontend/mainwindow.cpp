@@ -14,43 +14,26 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_8_clicked()
+void MainWindow::on_Tapahtumat_clicked()
 {
    ui->stackedWidget->setCurrentIndex(2);//tapahtumat 2
 }
 
 
-void MainWindow::on_pushButton_6_clicked()
+void MainWindow::on_Nosto_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0); //nosto on nolla
 }
 
 
-void MainWindow::on_pushButton_7_clicked()
+void MainWindow::on_Saldo_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4); // 4 on saldo
 }
 
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_KirjauduUlos_clicked()
 {
-    //Login
-    qInfo() << "Logging in";
 
-    card_number = ui->textCardNumber->toPlainText();
-    QString pin = ui->textPin->toPlainText();
-
-    QJsonObject jsonObj;
-    jsonObj.insert("card_number", card_number);
-    jsonObj.insert("pin", pin);
-
-    QString site_url="http://localhost:3000/login";
-    QNetworkRequest request((site_url));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-
-    loginManager = new QNetworkAccessManager(this);
-    connect(loginManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(loginSlot(QNetworkReply*)));
-
-    reply = loginManager->post(request, QJsonDocument(jsonObj).toJson());
 }
 
 void MainWindow::loginSlot(QNetworkReply *reply)
@@ -76,6 +59,35 @@ void MainWindow::loginSlot(QNetworkReply *reply)
             }
         }
     }
+
+}
+
+
+void MainWindow::on_Kirjaudu_clicked()
+{
+    //Login
+    qInfo() << "Logging in";
+
+    card_number = ui->textCardNumber->toPlainText();
+    QString pin = ui->textPin->toPlainText();
+
+    QJsonObject jsonObj;
+    jsonObj.insert("card_number", card_number);
+    jsonObj.insert("pin", pin);
+
+    QString site_url="http://localhost:3000/login";
+    QNetworkRequest request((site_url));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    loginManager = new QNetworkAccessManager(this);
+    connect(loginManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(loginSlot(QNetworkReply*)));
+
+    reply = loginManager->post(request, QJsonDocument(jsonObj).toJson());
+}
+
+
+void MainWindow::on_LukitseKortti_clicked()
+{
 
 }
 
