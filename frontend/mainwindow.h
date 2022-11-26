@@ -19,11 +19,15 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_8_clicked();
-    void on_pushButton_6_clicked();
-    void on_pushButton_7_clicked();
-    void on_pushButton_3_clicked();
+    void on_Tapahtumat_clicked();
+    void on_Nosto_clicked();
+    void on_Saldo_clicked();
+    void on_KirjauduUlos_clicked();
     void loginSlot(QNetworkReply *reply);
+
+    void on_Kirjaudu_clicked();
+
+    void on_LukitseKortti_clicked();
 
 private:
     Ui::MainWindow *ui;
