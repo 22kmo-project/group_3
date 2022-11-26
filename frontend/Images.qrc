@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/images">
+        <file>button.png</file>
+        <file>button2.png</file>
         <file>otti2.png</file>
         <file>backgroup.jpg</file>
         <file>backgroup.png</file>

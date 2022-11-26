@@ -121,22 +121,22 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="labelInfo">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>170</y>
+        <x>50</x>
+        <y>180</y>
         <width>441</width>
         <height>101</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>36</pointsize>
+        <pointsize>22</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>tähän tulloo login</string>
+       <string>Syötä kortin numero ja pin koodi</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_8">
@@ -155,6 +155,99 @@
       </property>
       <property name="text">
        <string>&lt;----Enter</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="textPin">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>270</y>
+        <width>271</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>32</pointsize>
+        <italic>false</italic>
+        <bold>true</bold>
+        <kerning>false</kerning>
+       </font>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="plainText">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="textCardNumber">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>130</y>
+        <width>371</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>32</pointsize>
+        <italic>false</italic>
+        <bold>true</bold>
+        <kerning>false</kerning>
+       </font>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
+      </property>
+      <property name="plainText">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>140</y>
+        <width>81</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Kortti</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>280</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>PIN</string>
       </property>
      </widget>
     </widget>
@@ -250,7 +343,7 @@
        <string notr="true">image: url(:/images/default.png);</string>
       </property>
       <property name="text">
-       <string>SALDOOOOOOOOOOOOOOOOOOOOOOOOOOO</string>
+       <string>SALDOOOOOOOO</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_12">
@@ -313,8 +406,8 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>320</y>
+      <x>40</x>
+      <y>310</y>
       <width>75</width>
       <height>24</height>
      </rect>
@@ -330,7 +423,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

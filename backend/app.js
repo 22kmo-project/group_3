@@ -12,6 +12,7 @@ var accountRouter = require('./routes/account');
 var cardTypeRouter = require('./routes/card_type');
 var logRouter = require('./routes/log')
 var customerRouter = require('./routes/customer');
+var loginRouter = require('./routes/login');
 
 
 var app = express();
@@ -31,6 +32,7 @@ app.use('/account', accountRouter);
 app.use('/card-type', cardTypeRouter);
 app.use('/log', logRouter);
 app.use('/customer', customerRouter);
+app.use('/login', loginRouter);
 
 
 module.exports = app;
