@@ -35,6 +35,12 @@ private slots:
 
     void on_TakaisinS_clicked();
 
+    void on_kuoletaYes_clicked();
+
+    void on_kuoletaNo_clicked();
+
+    void on_kuoletaNo2_clicked();
+
 private:
     Ui::MainWindow *ui;
     QNetworkAccessManager *loginManager;

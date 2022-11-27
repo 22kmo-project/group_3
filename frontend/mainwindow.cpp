@@ -83,12 +83,13 @@ void MainWindow::on_Kirjaudu_clicked()
     connect(loginManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(loginSlot(QNetworkReply*)));
 
     reply = loginManager->post(request, QJsonDocument(jsonObj).toJson());
+
 }
 
 
 void MainWindow::on_LukitseKortti_clicked()
 {
-
+    ui->stackedWidget->setCurrentIndex(5);
 }
 
 
@@ -107,6 +108,24 @@ void MainWindow::on_TakaisinT_clicked()
 
 
 void MainWindow::on_TakaisinS_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+
+void MainWindow::on_kuoletaYes_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(6);
+}
+
+
+void MainWindow::on_kuoletaNo_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+
+void MainWindow::on_kuoletaNo2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
 }
