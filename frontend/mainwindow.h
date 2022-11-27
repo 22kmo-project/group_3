@@ -29,10 +29,6 @@ private slots:
 
     void on_LukitseKortti_clicked();
 
-    void on_Takaisin_clicked();
-
-    void on_takaisin_clicked();
-
     void on_TakaisinN_clicked();
 
     void on_TakaisinT_clicked();
