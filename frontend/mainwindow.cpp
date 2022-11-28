@@ -130,3 +130,39 @@ void MainWindow::on_kuoletaNo2_clicked()
     ui->stackedWidget->setCurrentIndex(3);
 }
 
+
+void MainWindow::on_syotaDebit_clicked()
+{
+
+}
+
+
+void MainWindow::on_syotaCredit_clicked()
+{
+
+}
+
+
+void MainWindow::on_syotaCombo_clicked()
+{
+
+}
+
+
+void MainWindow::on_valintaDebit_clicked()
+{
+
+}
+
+
+void MainWindow::on_valintaCredit_clicked()
+{
+
+}
+
+
+void MainWindow::on_confirmKuoleta_clicked()
+{
+
+}
+

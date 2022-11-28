@@ -41,6 +41,18 @@ private slots:
 
     void on_kuoletaNo2_clicked();
 
+    void on_syotaDebit_clicked();
+
+    void on_syotaCredit_clicked();
+
+    void on_syotaCombo_clicked();
+
+    void on_valintaDebit_clicked();
+
+    void on_valintaCredit_clicked();
+
+    void on_confirmKuoleta_clicked();
+
 private:
     Ui::MainWindow *ui;
     QNetworkAccessManager *loginManager;
