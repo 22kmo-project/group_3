@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const card = require('../models/card_model');
 const jwt = require('jsonwebtoken');
-//const dotenv = require('dotenv');
+const dotenv = require('dotenv');
 
 router.post('/',
     function(request, response) {
@@ -40,8 +40,8 @@ router.post('/',
 
     
 function generateAccessToken(username) {
-    //dotenv.config();
-    return jwt.sign(username, "aPGZ6OvMh0ILVCsgpqC93X6w0Y7vZdP/+rgnmKFncA0lcb0R1q2grvvOAHgSEkF/iEJaMocOzYaKIk3HEGlXgw==", { expiresIn: '1800s' });
+    dotenv.config();
+    return jwt.sign(username, process.env.MY_TOKEN, { expiresIn: '1800s' });
 
 }
 
