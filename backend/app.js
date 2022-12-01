@@ -47,7 +47,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //SUOJAAMATTOMAT ENDPOINTIT
 app.use('/login', loginRouter);
 
-app.use(authenticateToken);
+//app.use(authenticateToken);
 //SUOJATUT ENDPOINTIT
 app.use('/', indexRouter);
 app.use('/card', cardRouter);

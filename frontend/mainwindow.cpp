@@ -19,7 +19,6 @@ void MainWindow::on_Tapahtumat_clicked()
    ui->stackedWidget->setCurrentIndex(2);//tapahtumat 2
 }
 
-
 void MainWindow::on_Nosto_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0); //nosto on nolla
@@ -62,7 +61,6 @@ void MainWindow::loginSlot(QNetworkReply *reply)
 
 }
 
-
 void MainWindow::on_Kirjaudu_clicked()
 {
     //Login
@@ -86,14 +84,10 @@ void MainWindow::on_Kirjaudu_clicked()
 
 }
 
-
 void MainWindow::on_LukitseKortti_clicked()
 {
     ui->stackedWidget->setCurrentIndex(5);
 }
-
-
-
 
 void MainWindow::on_TakaisinN_clicked()
 {
@@ -112,57 +106,75 @@ void MainWindow::on_TakaisinS_clicked()
     ui->stackedWidget->setCurrentIndex(3);
 }
 
-
-void MainWindow::on_kuoletaYes_clicked()
+void MainWindow::on_lukitaYes_clicked()
 {
     ui->stackedWidget->setCurrentIndex(6);
 }
 
-
-void MainWindow::on_kuoletaNo_clicked()
+void MainWindow::on_lukitaNo_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
 }
 
-
-void MainWindow::on_kuoletaNo2_clicked()
+void MainWindow::on_lukitaNo2_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);
 }
-
-
-void MainWindow::on_syotaDebit_clicked()
-{
-
-}
-
-
-void MainWindow::on_syotaCredit_clicked()
-{
-
-}
-
-
-void MainWindow::on_syotaCombo_clicked()
-{
-
-}
-
-
-void MainWindow::on_valintaDebit_clicked()
-{
-
-}
-
 
 void MainWindow::on_valintaCredit_clicked()
 {
 
 }
 
-
-void MainWindow::on_confirmKuoleta_clicked()
+void MainWindow::on_valintaDebit_clicked()
 {
 
+}
+
+void MainWindow::lukitaSlot(QNetworkReply *reply)
+{
+    response_data = reply->readAll();
+    int test = QString::compare(response_data, "false");
+    if (response_data.length() == 0){
+        qInfo() << "Palvelin ei vastaa";
+        ui->labelInfo->setText("Palvelin ei vastaa");
+    } else {
+        if (QString::compare(response_data, "-4078") == 0) {
+            ui->labelInfo->setText("Virhe tietokanta yhteydessä");
+            qInfo() << "Virhe tietokanta yhteydessä";
+        } else {
+            if (test == 0) {
+                //ui->textCardNumber->clear();
+                ui->lukitaPin_2->clear();
+                ui->labelInfo->setText("PIN väärin");
+                qInfo() << "PIN väärin";
+            } else {
+                //webToken = ("Bearer " + response_data);
+                ui->stackedWidget->setCurrentIndex(7); // korttiLukittu
+            }
+        }
+    }
+
+}
+
+void MainWindow::on_confirmLukita_clicked()
+{
+    //Kortin lukitus
+    int is_active = 0;
+    qInfo() << "Kortti lukitaan!";
+    QString pin = ui->lukitaPin_2->toPlainText();
+
+    QJsonObject jsonObj;
+    jsonObj.insert("pin", pin);
+    jsonObj.insert("is_active", is_active);
+
+    QString site_url="http://localhost:3000/card/3";
+    QNetworkRequest request((site_url));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    lukitaManager = new QNetworkAccessManager(this);
+    connect(lukitaManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(lukitaSlot(QNetworkReply*)));
+
+    reply = lukitaManager->put(request, QJsonDocument(jsonObj).toJson());
 }
 
