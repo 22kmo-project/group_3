@@ -6,45 +6,35 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->stackedWidget->setCurrentIndex(1);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete objectMenuWindow;
+    objectMenuWindow = nullptr;
 }
 
-void MainWindow::on_Tapahtumat_clicked()
+void MainWindow::logSlot(QNetworkReply *reply)
 {
-   ui->stackedWidget->setCurrentIndex(2);//tapahtumat 2
-}
-
-
-void MainWindow::on_Nosto_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(0); //nosto on nolla
-}
-
-
-void MainWindow::on_Saldo_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(4); // 4 on saldo
-}
-
-void MainWindow::on_KirjauduUlos_clicked()
-{
-
+    QByteArray responseData=reply->readAll();
+    qDebug()<<responseData;
+    QJsonDocument json_doc = QJsonDocument::fromJson(responseData);
+    QJsonObject json_obj = json_doc.object();
+    qDebug()<<json_doc;
+    reply->deleteLater();
+    eventsManager->deleteLater();
 }
 
 void MainWindow::loginSlot(QNetworkReply *reply)
 {
-    response_data = reply->readAll();
-    int test = QString::compare(response_data, "false");
-    if (response_data.length() == 0){
+    responseData = reply->readAll();
+    int test = QString::compare(responseData, "false");
+    if (responseData.length() == 0){
         qInfo() << "Palvelin ei vastaa";
         ui->labelInfo->setText("Palvelin ei vastaa");
     } else {
-        if (QString::compare(response_data, "-4078") == 0) {
+        if (QString::compare(responseData, "-4078") == 0) {
             ui->labelInfo->setText("Virhe tietokanta yhteydessä");
             qInfo() << "Virhe tietokanta yhteydessä";
         } else {
@@ -54,25 +44,30 @@ void MainWindow::loginSlot(QNetworkReply *reply)
                 ui->labelInfo->setText("Tunnus ja salasana eivät täsmää");
                 qInfo() << "Tunnus ja salasana eivät täsmää";
             } else {
-                webToken = ("Bearer " + response_data);
-                ui->stackedWidget->setCurrentIndex(3); // mainmenu
+                objectMenuWindow = new MenuWindow(cardNumber, "123123");
+                connect(objectMenuWindow, SIGNAL(rejected()), this, SLOT(showMainWindowSlot()));
+                objectMenuWindow->setWebToken("Bearer " + responseData);
+                objectMenuWindow->show();
+                this->hide();
             }
         }
     }
+    reply->deleteLater();
+    loginManager->deleteLater();
+}
 
+void MainWindow::showMainWindowSlot()
+{
+    this->show();
 }
 
 
-void MainWindow::on_Kirjaudu_clicked()
+void MainWindow::on_loginButton_clicked()
 {
-    //Login
-    qInfo() << "Logging in";
-
-    card_number = ui->textCardNumber->toPlainText();
+    cardNumber = ui->textCardNumber->toPlainText();
     QString pin = ui->textPin->toPlainText();
-
     QJsonObject jsonObj;
-    jsonObj.insert("card_number", card_number);
+    jsonObj.insert("card_number", cardNumber);
     jsonObj.insert("pin", pin);
 
     QString site_url="http://localhost:3000/login";
@@ -83,86 +78,6 @@ void MainWindow::on_Kirjaudu_clicked()
     connect(loginManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(loginSlot(QNetworkReply*)));
 
     reply = loginManager->post(request, QJsonDocument(jsonObj).toJson());
-
-}
-
-
-void MainWindow::on_LukitseKortti_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(5);
-}
-
-
-
-
-void MainWindow::on_TakaisinN_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(3);
-}
-
-
-void MainWindow::on_TakaisinT_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(3);
-}
-
-
-void MainWindow::on_TakaisinS_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(3);
-}
-
-
-void MainWindow::on_kuoletaYes_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(6);
-}
-
-
-void MainWindow::on_kuoletaNo_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(3);
-}
-
-
-void MainWindow::on_kuoletaNo2_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(3);
-}
-
-
-void MainWindow::on_syotaDebit_clicked()
-{
-
-}
-
-
-void MainWindow::on_syotaCredit_clicked()
-{
-
-}
-
-
-void MainWindow::on_syotaCombo_clicked()
-{
-
-}
-
-
-void MainWindow::on_valintaDebit_clicked()
-{
-
-}
-
-
-void MainWindow::on_valintaCredit_clicked()
-{
-
-}
-
-
-void MainWindow::on_confirmKuoleta_clicked()
-{
 
 }
 
