@@ -477,7 +477,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="kuoletakortti">
+    <widget class="QWidget" name="lukitakortti">
      <property name="styleSheet">
       <string notr="true"/>
      </property>
@@ -516,9 +516,9 @@
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>80</x>
+        <x>60</x>
         <y>150</y>
-        <width>381</width>
+        <width>451</width>
         <height>61</height>
        </rect>
       </property>
@@ -526,10 +526,10 @@
        <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
       </property>
       <property name="text">
-       <string>Haluatko varmasti sulkea kortin</string>
+       <string>Haluatko varmasti lukita kortin</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="kuoletaYes">
+     <widget class="QPushButton" name="lukitaYes">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -542,7 +542,7 @@
        <string>Kyllä</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="kuoletaNo">
+     <widget class="QPushButton" name="lukitaNo">
       <property name="geometry">
        <rect>
         <x>310</x>
@@ -556,7 +556,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="kuoletaPin">
+    <widget class="QWidget" name="lukitaPin">
      <widget class="QLabel" name="label_17">
       <property name="geometry">
        <rect>
@@ -589,7 +589,7 @@
        <string/>
       </property>
      </widget>
-     <widget class="QPushButton" name="kuoletaNo2">
+     <widget class="QPushButton" name="lukitaNo2">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -599,10 +599,10 @@
        </rect>
       </property>
       <property name="text">
-       <string>En haluakaan kuolettaa korttia</string>
+       <string>En haluakaan lukita korttia</string>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="kuoletaPin_2">
+     <widget class="QPlainTextEdit" name="lukitaPin_2">
       <property name="geometry">
        <rect>
         <x>113</x>
@@ -617,7 +617,7 @@
        <rect>
         <x>110</x>
         <y>140</y>
-        <width>111</width>
+        <width>151</width>
         <height>41</height>
        </rect>
       </property>
@@ -625,10 +625,10 @@
        <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
       </property>
       <property name="text">
-       <string>Syön Pin</string>
+       <string>Syötä Pin</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="confirmKuoleta">
+     <widget class="QPushButton" name="confirmLukita">
       <property name="geometry">
        <rect>
         <x>309</x>
@@ -638,11 +638,11 @@
        </rect>
       </property>
       <property name="text">
-       <string>Poista kortti</string>
+       <string>Lukitse kortti</string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="syotaKortti">
+    <widget class="QWidget" name="korttiLukittu">
      <widget class="QLabel" name="label_20">
       <property name="geometry">
        <rect>
@@ -675,43 +675,29 @@
        <string/>
       </property>
      </widget>
-     <widget class="QPushButton" name="syotaDebit">
+     <widget class="QLabel" name="label_24">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>210</y>
-        <width>80</width>
-        <height>24</height>
+        <x>80</x>
+        <y>130</y>
+        <width>391</width>
+        <height>151</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Debit</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="syotaCredit">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>210</y>
-        <width>80</width>
-        <height>24</height>
-       </rect>
+      <property name="styleSheet">
+       <string notr="true">font: 16pt &quot;Segoe UI&quot;;</string>
       </property>
       <property name="text">
-       <string>Credit</string>
+       <string>Korttisi on nyt suljettu, jos haluat sen ottaa käyttöön uudelleen, ota yhteyttä ylläpitoon.</string>
       </property>
-     </widget>
-     <widget class="QPushButton" name="syotaCombo">
-      <property name="geometry">
-       <rect>
-        <x>320</x>
-        <y>210</y>
-        <width>80</width>
-        <height>24</height>
-       </rect>
+      <property name="textFormat">
+       <enum>Qt::AutoText</enum>
       </property>
-      <property name="text">
-       <string>Debit/Credit</string>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
