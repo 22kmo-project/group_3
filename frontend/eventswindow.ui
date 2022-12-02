@@ -63,9 +63,26 @@
     <string/>
    </property>
   </widget>
+  <widget class="QTableView" name="eventsTableView">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>100</y>
+     <width>551</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+  </widget>
   <zorder>label_13</zorder>
   <zorder>label_14</zorder>
   <zorder>BackButton</zorder>
+  <zorder>eventsTableView</zorder>
  </widget>
  <resources/>
  <connections/>

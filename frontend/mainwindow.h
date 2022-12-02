@@ -20,8 +20,6 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-
-
 private slots:
     void loginSlot(QNetworkReply *reply);
     void showMainWindowSlot();

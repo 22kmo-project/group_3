@@ -53,7 +53,7 @@ void MenuWindow::on_eventsButton_clicked()
     connect(eventsManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(logSlot(QNetworkReply*)));
     reply = eventsManager->get(eventsRequest);
     */
-    objectEventsWindow = new EventsWindow();
+    objectEventsWindow = new EventsWindow(myCardNumber, myAccountNumber);
     objectEventsWindow->show();
 }
 
