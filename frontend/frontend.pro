@@ -13,6 +13,8 @@ SOURCES += \
     balancewindow.cpp \
     eventswindow.cpp \
     killcardwindow.cpp \
+    logout.cpp \
+    logoutkill.cpp \
     main.cpp \
     mainwindow.cpp \
     menuwindow.cpp \
@@ -22,6 +24,8 @@ HEADERS += \
     balancewindow.h \
     eventswindow.h \
     killcardwindow.h \
+    logout.h \
+    logoutkill.h \
     mainwindow.h \
     menuwindow.h \
     withdrawwindow.h
@@ -30,6 +34,8 @@ FORMS += \
     balancewindow.ui \
     eventswindow.ui \
     killcardwindow.ui \
+    logout.ui \
+    logoutkill.ui \
     mainwindow.ui \
     menuwindow.ui \
     withdrawwindow.ui

@@ -1,0 +1,14 @@
+release/balancewindow.o
+release/eventswindow.o
+release/killcardwindow.o
+release/main.o
+release/mainwindow.o
+release/menuwindow.o
+release/withdrawwindow.o
+release/qrc_Images.o
+release/moc_balancewindow.o
+release/moc_eventswindow.o
+release/moc_killcardwindow.o
+release/moc_mainwindow.o
+release/moc_menuwindow.o
+release/moc_withdrawwindow.o
