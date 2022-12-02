@@ -15,17 +15,6 @@ MainWindow::~MainWindow()
     objectMenuWindow = nullptr;
 }
 
-void MainWindow::logSlot(QNetworkReply *reply)
-{
-    QByteArray responseData=reply->readAll();
-    qDebug()<<responseData;
-    QJsonDocument json_doc = QJsonDocument::fromJson(responseData);
-    QJsonObject json_obj = json_doc.object();
-    qDebug()<<json_doc;
-    reply->deleteLater();
-    eventsManager->deleteLater();
-}
-
 void MainWindow::loginSlot(QNetworkReply *reply)
 {
     responseData = reply->readAll();
@@ -58,9 +47,9 @@ void MainWindow::loginSlot(QNetworkReply *reply)
 
 void MainWindow::showMainWindowSlot()
 {
+    qDebug()<<"showMainWindowSlot";
     this->show();
 }
-
 
 void MainWindow::on_loginButton_clicked()
 {
@@ -80,4 +69,3 @@ void MainWindow::on_loginButton_clicked()
     reply = loginManager->post(request, QJsonDocument(jsonObj).toJson());
 
 }
-

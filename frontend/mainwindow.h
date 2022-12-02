@@ -24,7 +24,6 @@ public:
 
 private slots:
     void loginSlot(QNetworkReply *reply);
-    void logSlot(QNetworkReply *reply);
     void showMainWindowSlot();
     void on_loginButton_clicked();
 
@@ -32,8 +31,6 @@ private:
     Ui::MainWindow *ui;
     MenuWindow *objectMenuWindow;
     QNetworkAccessManager *loginManager;
-    QNetworkAccessManager *tapahtumatManager;
-    QNetworkAccessManager *eventsManager;
     QNetworkReply *reply;
     QByteArray responseData;
     QByteArray webToken;

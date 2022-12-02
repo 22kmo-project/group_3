@@ -14,10 +14,6 @@ MenuWindow::~MenuWindow()
 {
     qDebug() << "MenuWindow Dekonstruktori";
     delete ui;
-    delete objectEventsWindow;
-    delete objectWithdrawWindow;
-    delete objectBalanceWindow;
-    delete objectKillCardWindow;
     objectEventsWindow = nullptr;
     objectWithdrawWindow = nullptr;
     objectBalanceWindow = nullptr;
@@ -36,7 +32,8 @@ void MenuWindow::on_logoutButton_clicked()
 }
 
 void MenuWindow::on_eventsButton_clicked()
-{/*
+{
+    /*
     ui->stackedWidget->setCurrentIndex(2);//tapahtumat 2
     QString site_url="http://localhost:3000/card-account/12345678/1";
     QNetworkRequest request((site_url));

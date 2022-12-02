@@ -2,6 +2,9 @@
 #define BALANCEWINDOW_H
 
 #include <QDialog>
+#include <QtNetwork>
+#include <QNetworkAccessManager>
+#include <QJsonDocument>
 
 namespace Ui {
 class BalanceWindow;

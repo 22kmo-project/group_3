@@ -61,7 +61,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="eventsButtom">
+  <widget class="QPushButton" name="eventsButton">
    <property name="geometry">
     <rect>
      <x>350</x>
@@ -131,7 +131,7 @@
   <zorder>killCardButton</zorder>
   <zorder>withdrawButton</zorder>
   <zorder>balanceButton</zorder>
-  <zorder>eventsButtom</zorder>
+  <zorder>eventsButton</zorder>
  </widget>
  <resources/>
  <connections/>
