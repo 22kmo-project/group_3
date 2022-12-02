@@ -38,10 +38,10 @@ const card = {
         return db.query('select ct.type from card_type ct join card c on ct.id = c.card_type_id where c.card_number=?', [card_number], callback);
     },
 	
-	getEvents: function (card_number, account_number, callback) {
+	getWithdrawEvents: function (card_number, account_number, callback) {
 		return db.query(
-		'select event, amount from log where card_number=? AND account_number=?',
-		[card_number, account_number],
+		'select event, amount, datetime from log where card_number=? AND account_number=? AND amount IS NOT ?',
+		[card_number, account_number, null],
 		callback);
 	},
 	
@@ -51,7 +51,7 @@ const card = {
                 `select a.account_number from card c
                 join card_account ca on c.card_number = ca.card_number
                 join account a on ca.account_number = a.account_number
-                where c.card_number = ? and a.credit_limit > 0`,
+                where c.card_number = ? and a.credit_limit = 0`,
 				[card_number],
 				callback);
         } else {
@@ -59,7 +59,7 @@ const card = {
 	            `select a.account_number from card c
                 join card_account ca on c.card_number = ca.card_number
                 join account a on ca.account_number = a.account_number
-                where c.card_number = ? and a.credit_limit = 0`,
+                where c.card_number = ? and a.credit_limit > 0`,
 				[card_number],
 				callback);
 		}
