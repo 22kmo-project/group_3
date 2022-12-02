@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>600</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,118 +17,24 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>30</y>
-      <width>531</width>
+      <x>0</x>
+      <y>0</y>
+      <width>701</width>
       <height>471</height>
      </rect>
     </property>
-    <property name="palette">
-     <palette>
-      <active/>
-      <inactive/>
-      <disabled/>
-     </palette>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="currentIndex">
-     <number>7</number>
-    </property>
-    <widget class="QWidget" name="nosto">
-     <widget class="QLabel" name="label_5">
+    <widget class="QWidget" name="loginPage">
+     <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-60</y>
-        <width>571</width>
-        <height>291</height>
+        <y>0</y>
+        <width>600</width>
+        <height>91</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">image: url(:/images/otti2.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_10">
-      <property name="geometry">
-       <rect>
-        <x>-30</x>
-        <y>130</y>
-        <width>581</width>
-        <height>231</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/images/default.png);</string>
-      </property>
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_9">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>130</y>
-        <width>131</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>36</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Nosto</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="TakaisinN">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>310</y>
-        <width>75</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Takaisin</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="login">
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>-60</y>
-        <width>571</width>
-        <height>291</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/images/otti2.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>20</y>
-        <width>581</width>
-        <height>451</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/images/default.png);</string>
       </property>
       <property name="text">
        <string/>
@@ -137,10 +43,10 @@
      <widget class="QLabel" name="labelInfo">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>180</y>
+        <x>70</x>
+        <y>90</y>
         <width>441</width>
-        <height>101</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="font">
@@ -152,38 +58,76 @@
        <string>Syötä kortin numero ja pin koodi</string>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="textPin">
+     <widget class="QLabel" name="label_17">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>270</y>
-        <width>271</width>
-        <height>70</height>
+        <x>120</x>
+        <y>160</y>
+        <width>81</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>32</pointsize>
-        <italic>false</italic>
-        <bold>true</bold>
-        <kerning>false</kerning>
+        <pointsize>22</pointsize>
        </font>
       </property>
-      <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
+      <property name="text">
+       <string>Kortti</string>
       </property>
-      <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>80</y>
+        <width>600</width>
+        <height>251</height>
+       </rect>
       </property>
-      <property name="plainText">
+      <property name="styleSheet">
+       <string notr="true">image: url(:/images/default.png);</string>
+      </property>
+      <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>240</y>
+        <width>51</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>PIN</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="loginButton">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>280</y>
+        <width>80</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Kirjaudu</string>
       </property>
      </widget>
      <widget class="QPlainTextEdit" name="textCardNumber">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>130</y>
+        <x>210</x>
+        <y>140</y>
         <width>371</width>
         <height>70</height>
        </rect>
@@ -209,447 +153,50 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_15">
+     <widget class="QPlainTextEdit" name="textPin">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>140</y>
-        <width>81</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>22</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Kortti</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_16">
-      <property name="geometry">
-       <rect>
-        <x>80</x>
-        <y>280</y>
-        <width>51</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>22</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>PIN</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="Kirjaudu">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>320</y>
-        <width>80</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>kirjaudu</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tapahtumat">
-     <widget class="QLabel" name="label_13">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>-60</y>
-        <width>571</width>
-        <height>291</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/images/otti2.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_14">
-      <property name="geometry">
-       <rect>
-        <x>-20</x>
-        <y>130</y>
-        <width>581</width>
-        <height>231</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>28</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/images/default.png);</string>
-      </property>
-      <property name="text">
-       <string>TAPAHTUUUUUMAT</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="TakaisinT">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>310</y>
-        <width>75</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>takaisin</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="mainmenu">
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>-60</y>
-        <width>571</width>
-        <height>291</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/images/otti2.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>40</y>
-        <width>531</width>
-        <height>391</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/images/backgroup.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="Tapahtumat">
-      <property name="geometry">
-       <rect>
-        <x>314</x>
-        <y>283</y>
-        <width>211</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgba(255,255,255,0);border: 0px;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="Saldo">
-      <property name="geometry">
-       <rect>
-        <x>394</x>
-        <y>213</y>
-        <width>131</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgba(255,255,255,0);border: 0px;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="Nosto">
-      <property name="geometry">
-       <rect>
-        <x>394</x>
-        <y>153</y>
-        <width>131</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgba(255,255,255,0);border: 0px;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="KirjauduUlos">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>283</y>
-        <width>241</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgba(255,255,255,0);border: 0px;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="LukitseKortti">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>210</y>
-        <width>241</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgba(255,255,255,0);border: 0px;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="saldo">
-     <widget class="QLabel" name="label_11">
-      <property name="geometry">
-       <rect>
-        <x>-80</x>
-        <y>130</y>
-        <width>651</width>
-        <height>231</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>28</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/images/default.png);</string>
-      </property>
-      <property name="text">
-       <string>                        SALDOOOOOOOO</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_12">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>-60</y>
-        <width>571</width>
-        <height>291</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/images/otti2.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="TakaisinS">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>300</y>
-        <width>75</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>takaisin</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="lukitakortti">
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>-60</y>
-        <width>571</width>
-        <height>291</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/images/otti2.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>-80</x>
-        <y>130</y>
-        <width>651</width>
-        <height>251</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/images/default.png);</string>
-      </property>
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_8">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>150</y>
-        <width>451</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Haluatko varmasti lukita kortin</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="lukitaYes">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>250</y>
-        <width>80</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Kyllä</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="lukitaNo">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
-        <y>250</y>
-        <width>80</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Ei</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="lukitaPin">
-     <widget class="QLabel" name="label_17">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>-60</y>
-        <width>571</width>
-        <height>291</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/images/otti2.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_18">
-      <property name="geometry">
-       <rect>
-        <x>-80</x>
-        <y>130</y>
-        <width>651</width>
-        <height>251</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/images/default.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="lukitaNo2">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>330</y>
-        <width>221</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>En haluakaan lukita korttia</string>
-      </property>
-     </widget>
-     <widget class="QPlainTextEdit" name="lukitaPin_2">
-      <property name="geometry">
-       <rect>
-        <x>113</x>
-        <y>190</y>
-        <width>321</width>
+        <x>210</x>
+        <y>230</y>
+        <width>271</width>
         <height>70</height>
        </rect>
       </property>
-     </widget>
-     <widget class="QLabel" name="label_19">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>140</y>
-        <width>151</width>
-        <height>41</height>
-       </rect>
+      <property name="font">
+       <font>
+        <pointsize>32</pointsize>
+        <italic>false</italic>
+        <bold>true</bold>
+        <kerning>false</kerning>
+       </font>
       </property>
-      <property name="styleSheet">
-       <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
       </property>
-      <property name="text">
-       <string>Syötä Pin</string>
+      <property name="horizontalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOff</enum>
       </property>
-     </widget>
-     <widget class="QPushButton" name="confirmLukita">
-      <property name="geometry">
-       <rect>
-        <x>309</x>
-        <y>280</y>
-        <width>131</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Lukitse kortti</string>
+      <property name="plainText">
+       <string/>
       </property>
      </widget>
+     <zorder>label_4</zorder>
+     <zorder>label_8</zorder>
+     <zorder>label_18</zorder>
+     <zorder>loginButton</zorder>
+     <zorder>textCardNumber</zorder>
+     <zorder>textPin</zorder>
+     <zorder>labelInfo</zorder>
+     <zorder>label_17</zorder>
     </widget>
-    <widget class="QWidget" name="korttiLukittu">
-     <widget class="QLabel" name="label_20">
+    <widget class="QWidget" name="accountPage">
+     <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-60</y>
-        <width>571</width>
-        <height>291</height>
+        <y>0</y>
+        <width>600</width>
+        <height>91</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -659,12 +206,12 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_21">
+     <widget class="QLabel" name="label_9">
       <property name="geometry">
        <rect>
-        <x>-80</x>
-        <y>130</y>
-        <width>651</width>
+        <x>0</x>
+        <y>80</y>
+        <width>600</width>
         <height>251</height>
        </rect>
       </property>
@@ -675,82 +222,10 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_24">
+     <widget class="QPushButton" name="creditButton">
       <property name="geometry">
        <rect>
-        <x>80</x>
-        <y>130</y>
-        <width>391</width>
-        <height>151</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 16pt &quot;Segoe UI&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Korttisi on nyt suljettu, jos haluat sen ottaa käyttöön uudelleen, ota yhteyttä ylläpitoon.</string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::AutoText</enum>
-      </property>
-      <property name="scaledContents">
-       <bool>false</bool>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="kortinValinta">
-     <widget class="QLabel" name="label_22">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>-60</y>
-        <width>571</width>
-        <height>291</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/images/otti2.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_23">
-      <property name="geometry">
-       <rect>
-        <x>-80</x>
-        <y>130</y>
-        <width>651</width>
-        <height>251</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/images/default.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="valintaDebit">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>200</y>
-        <width>80</width>
-        <height>24</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Debit</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="valintaCredit">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
+        <x>370</x>
         <y>200</y>
         <width>80</width>
         <height>24</height>
@@ -760,18 +235,44 @@
        <string>Credit</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="debitButton">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>200</y>
+        <width>80</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Debit</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>130</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>24</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Valitse tili</string>
+      </property>
+     </widget>
     </widget>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>25</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
