@@ -24,6 +24,7 @@
    </property>
    <property name="currentIndex">
     <number>2</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="killCardConfirmPage">
     <widget class="QPushButton" name="confirmYesButton">
@@ -90,6 +91,9 @@
        <x>40</x>
        <y>140</y>
        <width>481</width>
+       <x>100</x>
+       <y>140</y>
+       <width>381</width>
        <height>61</height>
       </rect>
      </property>
@@ -181,6 +185,7 @@
        <x>150</x>
        <y>120</y>
        <width>141</width>
+       <width>111</width>
        <height>41</height>
       </rect>
      </property>
@@ -189,6 +194,7 @@
      </property>
      <property name="text">
       <string>Syötä Pin</string>
+      <string>Syön Pin</string>
      </property>
     </widget>
     <zorder>label_4</zorder>

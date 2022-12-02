@@ -23,7 +23,6 @@ router.get('/:id',
   }
 });
 
-
 router.post('/', 
 function(request, response) {
   log.add(request.body, function(err, dbResult) {
@@ -35,7 +34,6 @@ function(request, response) {
   });
 });
 
-
 router.delete('/:id', 
 function(request, response) {
   log.delete(request.params.id, function(err, dbResult) {
@@ -46,7 +44,6 @@ function(request, response) {
     }
   });
 });
-
 
 router.put('/:id', 
 function(request, response) {

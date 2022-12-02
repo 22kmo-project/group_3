@@ -1,6 +1,8 @@
 #include "killcardwindow.h"
 #include "ui_killcardwindow.h"
+
 #include "ui_menuwindow.h"
+
 
 KillCardWindow::KillCardWindow(QWidget *parent) :
     QDialog(parent),
@@ -38,6 +40,7 @@ void KillCardWindow::on_confirmKillCard_clicked()
     //Kortin lukitus
     int is_active = 0;
     qInfo() << "Kortti lukitaan!";
+
     QString cardNumber; //= ui->textCardNumber->toPlainText();
     QString pin = ui->pinText->toPlainText();
 
@@ -48,12 +51,14 @@ void KillCardWindow::on_confirmKillCard_clicked()
 
     QString site_url="http://localhost:3000/card/";
     QNetworkRequest request((site_url+cardNumber));
+
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
     lukitaManager = new QNetworkAccessManager(this);
     connect(lukitaManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(lukitaSlot(QNetworkReply*)));
 
     reply = lukitaManager->put(request, QJsonDocument(jsonObj).toJson());
+
     QTimer::singleShot(2000, this, SLOT(KillCardKilled()));
 }
 
@@ -71,7 +76,8 @@ void KillCardWindow::lukitaSlot(QNetworkReply *reply)
             //ui->labelInfo->setText("Virhe tietokanta yhteydessä");
             qInfo() << "Virhe tietokanta yhteydessä";
         } else {
-            if (testi == 0) {
+            if (test == 0) {
+                //ui->textCardNumber->clear();
                 ui->pinText->clear();
                 //ui->labelInfo->setText("PIN väärin");
                 qInfo() << "PIN väärin";

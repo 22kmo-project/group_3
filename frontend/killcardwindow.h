@@ -7,7 +7,9 @@
 #include <QJsonDocument>
 
 namespace Ui {
-class KillCardWindow; class MainWindow;
+
+class KillCardWindow;
+
 }
 
 class KillCardWindow : public QDialog
@@ -32,6 +34,7 @@ private:
     QNetworkReply *reply;
     QByteArray response_data;
     QByteArray webToken;
+
 };
 
 #endif // KILLCARDWINDOW_H
