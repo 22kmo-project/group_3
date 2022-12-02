@@ -34,6 +34,10 @@ const card = {
 		return db.query('select pin from card where card_number=?', [card_number], callback);
 	},
 	
+    getType: function (card_number, callback) {
+        return db.query('select ct.type from card_type ct join card c on ct.id = c.card_type_id where c.card_number=?', [card_number], callback);
+    },
+	
 	getEvents: function (card_number, account_number, callback) {
 		return db.query(
 		'select event, amount from log where card_number=? AND account_number=?',
