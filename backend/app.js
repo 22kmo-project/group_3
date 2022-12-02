@@ -31,6 +31,8 @@ var cardTypeRouter = require('./routes/card_type');
 var logRouter = require('./routes/log')
 var customerRouter = require('./routes/customer');
 var loginRouter = require('./routes/login');
+var cardAccountRouter = require('./routes/card_account');
+var cardLogRouter = require('./routes/card_log');
 
 
 var app = express();
@@ -55,6 +57,8 @@ app.use('/account', accountRouter);
 app.use('/card-type', cardTypeRouter);
 app.use('/log', logRouter);
 app.use('/customer', customerRouter);
+app.use('/card-account', cardAccountRouter);
+app.use('/card-log', cardLogRouter);
 
 
 module.exports = app;

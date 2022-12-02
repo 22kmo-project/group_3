@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>KillCardWindow</class>
+ <widget class="QDialog" name="KillCardWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>400</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="killCardConfirmPage">
+    <widget class="QPushButton" name="confirmYesButton">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>240</y>
+       <width>80</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Kyllä</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>85</y>
+       <width>571</width>
+       <height>231</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/images/default.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_1">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>571</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/images/otti2.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="confirmNoButton">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>240</y>
+       <width>80</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ei</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>140</y>
+       <width>381</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Haluatko varmasti sulkea kortin</string>
+     </property>
+    </widget>
+    <zorder>label_1</zorder>
+    <zorder>label_2</zorder>
+    <zorder>confirmNoButton</zorder>
+    <zorder>label_3</zorder>
+    <zorder>confirmYesButton</zorder>
+   </widget>
+   <widget class="QWidget" name="killCardPinPage">
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>571</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/images/otti2.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="confirmKillCard">
+     <property name="geometry">
+      <rect>
+       <x>349</x>
+       <y>260</y>
+       <width>131</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Poista kortti</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cancelKillCard">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>260</y>
+       <width>221</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>En haluakaan kuolettaa korttia</string>
+     </property>
+    </widget>
+    <widget class="QPlainTextEdit" name="pinText">
+     <property name="geometry">
+      <rect>
+       <x>153</x>
+       <y>170</y>
+       <width>321</width>
+       <height>70</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>85</y>
+       <width>571</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/images/default.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_pin">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>120</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Syön Pin</string>
+     </property>
+    </widget>
+    <zorder>label_4</zorder>
+    <zorder>label_5</zorder>
+    <zorder>cancelKillCard</zorder>
+    <zorder>confirmKillCard</zorder>
+    <zorder>pinText</zorder>
+    <zorder>label_pin</zorder>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

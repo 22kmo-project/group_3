@@ -8,7 +8,7 @@ const card = {
         return db.query('select * from card where card_number=?', [card_number], callback);
     },
 	
-	add: function (data, callback) {
+    add: function (data, callback) {
         bcrypt.hash(data.pin, saltRounds, function (err, hash) {
             return db.query(
                 'insert into card (card_number, card_type_id, customer_id, pin, is_active) values(?,?,?,?,?)',
@@ -30,9 +30,37 @@ const card = {
         });
     },
 	
-	checkPin: function (card_number, callback) {
+    checkPin: function (card_number, callback) {
 		return db.query('select pin from card where card_number=?', [card_number], callback);
-	}
+	},
+	
+	getEvents: function (card_number, account_number, callback) {
+		return db.query(
+		'select event, amount from log where card_number=? AND account_number=?',
+		[card_number, account_number],
+		callback);
+	},
+	
+    getCardAccountNumber: function (card_number, is_debit, callback) {
+        if (is_debit == 1) {
+		    return db.query(
+                `select a.account_number from card c
+                join card_account ca on c.card_number = ca.card_number
+                join account a on ca.account_number = a.account_number
+                where c.card_number = ? and a.credit_limit > 0`,
+				[card_number],
+				callback);
+        } else {
+		    return db.query(
+	            `select a.account_number from card c
+                join card_account ca on c.card_number = ca.card_number
+                join account a on ca.account_number = a.account_number
+                where c.card_number = ? and a.credit_limit = 0`,
+				[card_number],
+				callback);
+		}
+	    
+    }
 };
 
 module.exports = card;

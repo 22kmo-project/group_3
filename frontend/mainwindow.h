@@ -6,6 +6,8 @@
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 
+#include "menuwindow.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -18,32 +20,21 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
+
 private slots:
-    void on_Tapahtumat_clicked();
-    void on_Nosto_clicked();
-    void on_Saldo_clicked();
-    void on_KirjauduUlos_clicked();
     void loginSlot(QNetworkReply *reply);
-    void lukitaSlot(QNetworkReply *reply);
-    void on_Kirjaudu_clicked();
-    void on_LukitseKortti_clicked();
-    void on_TakaisinN_clicked();
-    void on_TakaisinT_clicked();
-    void on_TakaisinS_clicked();
-    void on_lukitaYes_clicked();
-    void on_lukitaNo_clicked();
-    void on_lukitaNo2_clicked();
-    void on_valintaDebit_clicked();
-    void on_valintaCredit_clicked();
-    void on_confirmLukita_clicked();
+    void showMainWindowSlot();
+    void on_loginButton_clicked();
 
 private:
     Ui::MainWindow *ui;
+    MenuWindow *objectMenuWindow;
     QNetworkAccessManager *loginManager;
-    QNetworkAccessManager *lukitaManager;
     QNetworkReply *reply;
-    QByteArray response_data;
-    QString card_number;
+    QByteArray responseData;
     QByteArray webToken;
+    QString cardNumber;
+    QString accountNumber;
 };
 #endif // MAINWINDOW_H
