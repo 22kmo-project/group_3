@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="label_13">
+  <widget class="QLabel" name="event_topic">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -42,7 +42,7 @@
     <string>Takaisin</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_14">
+  <widget class="QLabel" name="event_bottom">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -63,6 +63,7 @@
     <string/>
    </property>
   </widget>
+<<<<<<< HEAD
   <widget class="QTableView" name="eventsTableView">
    <property name="geometry">
     <rect>
@@ -81,6 +82,10 @@
   </widget>
   <zorder>label_13</zorder>
   <zorder>label_14</zorder>
+=======
+  <zorder>event_topic</zorder>
+  <zorder>event_bottom</zorder>
+>>>>>>> 8af0f258b2bc792809ffd0c050a665bd2b79bbc3
   <zorder>BackButton</zorder>
   <zorder>eventsTableView</zorder>
  </widget>
