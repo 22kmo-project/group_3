@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Logout</class>
- <widget class="QDialog" name="Logout">
+ <class>logout</class>
+ <widget class="QDialog" name="logout">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="logout_topic">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -29,7 +29,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="logout_bottom">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -42,7 +42,7 @@
     <string notr="true">image: url(:/images/default.png);</string>
    </property>
    <property name="text">
-    <string>                            Kirjauduit ulos..... Tervetuloa uudelleen..... ohjataan pääsivulle 5 sekunnin kuluttua</string>
+    <string>                                          Kirjauduit ulos....... tervetuloa uudelleen.....</string>
    </property>
   </widget>
  </widget>
