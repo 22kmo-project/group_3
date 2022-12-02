@@ -32,6 +32,13 @@ void MainWindow::loginSlot(QNetworkReply *reply)
                 ui->labelInfo->setText("Tunnus ja salasana eivät täsmää");
                 qInfo() << "Tunnus ja salasana eivät täsmää";
             } else {
+
+                objectMenuWindow = new MenuWindow(cardNumber, "123123");
+                connect(objectMenuWindow, SIGNAL(rejected()), this, SLOT(showMainWindowSlot()));
+                objectMenuWindow->setWebToken("Bearer " + responseData);
+                objectMenuWindow->show();
+                this->hide();
+
                 // Login successful, do your thing.
                 resetTextFields();
                 webToken = responseData;
@@ -47,6 +54,32 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     }
     reply->deleteLater();
     loginManager->deleteLater();
+}
+
+
+void MainWindow::showMainWindowSlot()
+{
+    qDebug()<<"showMainWindowSlot";
+    this->show();
+}
+
+void MainWindow::on_loginButton_clicked()
+{
+    cardNumber = ui->textCardNumber->toPlainText();
+    QString pin = ui->textPin->toPlainText();
+    QJsonObject jsonObj;
+    jsonObj.insert("card_number", cardNumber);
+    jsonObj.insert("pin", pin);
+
+    QString site_url="http://localhost:3000/login";
+    QNetworkRequest request((site_url));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    loginManager = new QNetworkAccessManager(this);
+    connect(loginManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(loginSlot(QNetworkReply*)));
+
+    reply = loginManager->post(request, QJsonDocument(jsonObj).toJson());
+
 }
 
 void MainWindow::resetTextFields()
@@ -156,4 +189,3 @@ void MainWindow::on_debitButton_clicked()
     this->getAccountNumber();
     this->openMenuWindow();
 }
-

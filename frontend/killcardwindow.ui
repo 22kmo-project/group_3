@@ -23,6 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
+    <number>2</number>
     <number>1</number>
    </property>
    <widget class="QWidget" name="killCardConfirmPage">
@@ -87,6 +88,9 @@
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
+       <x>40</x>
+       <y>140</y>
+       <width>481</width>
        <x>100</x>
        <y>140</y>
        <width>381</width>
@@ -180,6 +184,7 @@
       <rect>
        <x>150</x>
        <y>120</y>
+       <width>141</width>
        <width>111</width>
        <height>41</height>
       </rect>
@@ -188,6 +193,7 @@
       <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
      </property>
      <property name="text">
+      <string>Syötä Pin</string>
       <string>Syön Pin</string>
      </property>
     </widget>
@@ -197,6 +203,59 @@
     <zorder>confirmKillCard</zorder>
     <zorder>pinText</zorder>
     <zorder>label_pin</zorder>
+   </widget>
+   <widget class="QWidget" name="killCardKilled">
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>571</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/images/otti2.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>85</y>
+       <width>571</width>
+       <height>231</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/images/default.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>100</y>
+       <width>361</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 18pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Kortti on suljettu, jos haluat sen uudelleen käyttöön, ole yhteydessä ylläpitoon</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>

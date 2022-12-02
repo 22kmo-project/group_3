@@ -25,6 +25,7 @@ public:
 private slots:
     void loginSlot(QNetworkReply *reply);
     void showMainWindowSlot();
+    void on_loginButton_clicked();
     void getAccountNumber();
     QString getCardType();
     void openMenuWindow();

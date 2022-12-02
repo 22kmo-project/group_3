@@ -7,7 +7,9 @@
 #include <QJsonDocument>
 
 namespace Ui {
+
 class KillCardWindow;
+
 }
 
 class KillCardWindow : public QDialog
@@ -23,7 +25,7 @@ private slots:
     void on_confirmNoButton_clicked();
     void on_confirmKillCard_clicked();
     void lukitaSlot(QNetworkReply *reply);
-
+    void KillCardKilled();
     void on_cancelKillCard_clicked();
 
 private:
@@ -31,6 +33,8 @@ private:
     QNetworkAccessManager *lukitaManager;
     QNetworkReply *reply;
     QByteArray response_data;
+    QByteArray webToken;
+
 };
 
 #endif // KILLCARDWINDOW_H
