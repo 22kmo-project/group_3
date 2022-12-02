@@ -1,6 +1,5 @@
 #include "killcardwindow.h"
 #include "ui_killcardwindow.h"
-#include "mainwindow.h"
 
 KillCardWindow::KillCardWindow(QWidget *parent) :
     QDialog(parent),

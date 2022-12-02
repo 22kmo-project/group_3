@@ -4,19 +4,19 @@
 #include <QDialog>
 
 namespace Ui {
-class logout;
+class Logout;
 }
 
-class logout : public QDialog
+class Logout : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit logout(QWidget *parent = nullptr);
-    ~logout();
+    explicit Logout(QWidget *parent = nullptr);
+    ~Logout();
 
 private:
-    Ui::logout *ui;
+    Ui::Logout *ui;
 };
 
 #endif // LOGOUT_H

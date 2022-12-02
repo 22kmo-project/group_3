@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>logout</class>
- <widget class="QDialog" name="logout">
+ <class>Logout</class>
+ <widget class="QDialog" name="Logout">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,26 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="logout_default">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>85</y>
-     <width>571</width>
-     <height>231</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">image: url(:/images/default.png);</string>
-   </property>
-   <property name="text">
-    <string>                     Kirjaudutaan ulos, tervetuloa uudelleen</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="logout_otsikko">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -46,6 +27,22 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>85</y>
+     <width>571</width>
+     <height>231</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/images/default.png);</string>
+   </property>
+   <property name="text">
+    <string>                            Kirjauduit ulos..... Tervetuloa uudelleen..... ohjataan pääsivulle 5 sekunnin kuluttua</string>
    </property>
   </widget>
  </widget>

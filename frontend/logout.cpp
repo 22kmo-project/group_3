@@ -1,14 +1,14 @@
 #include "logout.h"
 #include "ui_logout.h"
 
-logout::logout(QWidget *parent) :
+Logout::Logout(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::logout)
+    ui(new Ui::Logout)
 {
     ui->setupUi(this);
 }
 
-logout::~logout()
+Logout::~Logout()
 {
     delete ui;
 }
