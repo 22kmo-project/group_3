@@ -63,7 +63,6 @@
     <string/>
    </property>
   </widget>
-<<<<<<< HEAD
   <widget class="QTableView" name="eventsTableView">
    <property name="geometry">
     <rect>
@@ -82,10 +81,6 @@
   </widget>
   <zorder>label_13</zorder>
   <zorder>label_14</zorder>
-=======
-  <zorder>event_topic</zorder>
-  <zorder>event_bottom</zorder>
->>>>>>> 8af0f258b2bc792809ffd0c050a665bd2b79bbc3
   <zorder>BackButton</zorder>
   <zorder>eventsTableView</zorder>
  </widget>
