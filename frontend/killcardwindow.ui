@@ -23,7 +23,6 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
     <number>1</number>
    </property>
    <widget class="QWidget" name="killCardConfirmPage">
@@ -88,9 +87,6 @@
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>140</y>
-       <width>481</width>
        <x>100</x>
        <y>140</y>
        <width>381</width>
@@ -182,19 +178,30 @@
     <widget class="QLabel" name="label_pin">
      <property name="geometry">
       <rect>
-       <x>150</x>
-       <y>120</y>
+       <x>120</x>
+       <y>110</y>
        <width>141</width>
-       <width>111</width>
-       <height>41</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
      </property>
      <property name="text">
-      <string>Syötä Pin</string>
       <string>Syön Pin</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>110</y>
+       <width>211</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
     <zorder>label_4</zorder>
@@ -203,6 +210,7 @@
     <zorder>confirmKillCard</zorder>
     <zorder>pinText</zorder>
     <zorder>label_pin</zorder>
+    <zorder>label_8</zorder>
    </widget>
    <widget class="QWidget" name="killCardKilled">
     <widget class="QLabel" name="label">
@@ -243,7 +251,7 @@
        <x>110</x>
        <y>100</y>
        <width>361</width>
-       <height>121</height>
+       <height>151</height>
       </rect>
      </property>
      <property name="styleSheet">
