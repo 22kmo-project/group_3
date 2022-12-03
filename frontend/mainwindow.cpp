@@ -56,32 +56,6 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     loginManager->deleteLater();
 }
 
-
-void MainWindow::showMainWindowSlot()
-{
-    qDebug()<<"showMainWindowSlot";
-    this->show();
-}
-
-void MainWindow::on_loginButton_clicked()
-{
-    cardNumber = ui->textCardNumber->toPlainText();
-    QString pin = ui->textPin->toPlainText();
-    QJsonObject jsonObj;
-    jsonObj.insert("card_number", cardNumber);
-    jsonObj.insert("pin", pin);
-
-    QString site_url="http://localhost:3000/login";
-    QNetworkRequest request((site_url));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-
-    loginManager = new QNetworkAccessManager(this);
-    connect(loginManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(loginSlot(QNetworkReply*)));
-
-    reply = loginManager->post(request, QJsonDocument(jsonObj).toJson());
-
-}
-
 void MainWindow::resetTextFields()
 {
     ui->textCardNumber->clear();

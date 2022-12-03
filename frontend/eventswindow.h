@@ -1,7 +1,7 @@
 #ifndef EVENTSWINDOW_H
 #define EVENTSWINDOW_H
 
-#include "eventlogmodel.h"
+
 
 #include <QDialog>
 #include <QtNetwork>

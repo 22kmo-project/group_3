@@ -29,7 +29,6 @@ private slots:
     void openMenuWindow();
     void resetTextFields();
 
-    void on_loginButton_clicked();
     void on_creditButton_clicked();
     void on_debitButton_clicked();
 
