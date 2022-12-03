@@ -4,17 +4,23 @@
 #include "ui_menuwindow.h"
 
 
-KillCardWindow::KillCardWindow(QWidget *parent) :
+KillCardWindow::KillCardWindow(QString cardNumber, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::KillCardWindow)
 {
     ui->setupUi(this);
+    myCardNumber = cardNumber;
     ui->stackedWidget->setCurrentIndex(0);
 }
 
 KillCardWindow::~KillCardWindow()
 {
     delete ui;
+}
+
+void KillCardWindow::setWebToken(const QByteArray &newWebToken)
+{
+    webToken = newWebToken;
 }
 
 void KillCardWindow::on_confirmYesButton_clicked()
@@ -41,17 +47,17 @@ void KillCardWindow::on_confirmKillCard_clicked()
     int is_active = 0;
     qInfo() << "Kortti lukitaan!";
 
-    QString cardNumber; //= ui->textCardNumber->toPlainText();
     QString pin = ui->pinText->toPlainText();
 
     QJsonObject jsonObj;
-    jsonObj.insert("card_number", cardNumber);
+    jsonObj.insert("card_number", myCardNumber);
     jsonObj.insert("pin", pin);
     jsonObj.insert("is_active", is_active);
 
-    QString site_url="http://localhost:3000/card/";
-    QNetworkRequest request((site_url+cardNumber));
+    QString site_url="http://localhost:3000/card/"+myCardNumber+"";
+    QNetworkRequest request((site_url));
 
+    request.setRawHeader(QByteArray("Authorization"),(webToken));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
     lukitaManager = new QNetworkAccessManager(this);
@@ -59,7 +65,7 @@ void KillCardWindow::on_confirmKillCard_clicked()
 
     reply = lukitaManager->put(request, QJsonDocument(jsonObj).toJson());
 
-    QTimer::singleShot(2000, this, SLOT(KillCardKilled()));
+    QTimer::singleShot(3000, this, SLOT(KillCardKilled()));
 }
 
 
@@ -67,27 +73,7 @@ void KillCardWindow::on_confirmKillCard_clicked()
 void KillCardWindow::lukitaSlot(QNetworkReply *reply)
 {
     response_data = reply->readAll();
-    int testi = QString::compare(response_data, "false");
-    if (response_data.length() == 0){
-        qInfo() << "Palvelin ei vastaa";
-        //ui->labelInfo->setText("Palvelin ei vastaa");
-    } else {
-        if (QString::compare(response_data, "-4078") == 0) {
-            //ui->labelInfo->setText("Virhe tietokanta yhteydessä");
-            qInfo() << "Virhe tietokanta yhteydessä";
-        } else {
-            if (test == 0) {
-                //ui->textCardNumber->clear();
-                ui->pinText->clear();
-                //ui->labelInfo->setText("PIN väärin");
-                qInfo() << "PIN väärin";
-            } else {
-                webToken = ("Bearer " + response_data);
-                ui->stackedWidget->setCurrentIndex(2); // korttiLukittu
-            }
-        }
-    }
-
+    ui->stackedWidget->setCurrentIndex(2); // korttiLukittu
 }
 
 void KillCardWindow::KillCardKilled()
