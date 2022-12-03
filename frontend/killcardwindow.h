@@ -17,8 +17,10 @@ class KillCardWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit KillCardWindow(QWidget *parent = nullptr);
+    explicit KillCardWindow(QString cardNumber, QWidget *parent = nullptr);
     ~KillCardWindow();
+
+    void setWebToken(const QByteArray &newWebToken);
 
 private slots:
     void on_confirmYesButton_clicked();
@@ -34,7 +36,7 @@ private:
     QNetworkReply *reply;
     QByteArray response_data;
     QByteArray webToken;
-
+    QString myCardNumber;
 };
 
 #endif // KILLCARDWINDOW_H

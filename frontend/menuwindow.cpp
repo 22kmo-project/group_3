@@ -71,6 +71,6 @@ void MenuWindow::on_balanceButton_clicked()
 
 void MenuWindow::on_killCardButton_clicked()
 {
-    objectKillCardWindow = new KillCardWindow();
+    objectKillCardWindow = new KillCardWindow(myCardNumber);
     objectKillCardWindow->show();
 }
