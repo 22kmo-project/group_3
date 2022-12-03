@@ -45,7 +45,7 @@ void KillCardWindow::on_confirmKillCard_clicked()
 {
     //Kortin lukitus
     int is_active = 0;
-    qInfo() << "Kortti lukitaan!";
+
 
     QString pin = ui->pinText->toPlainText();
 
@@ -62,18 +62,26 @@ void KillCardWindow::on_confirmKillCard_clicked()
 
     lukitaManager = new QNetworkAccessManager(this);
     connect(lukitaManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(lukitaSlot(QNetworkReply*)));
-
     reply = lukitaManager->put(request, QJsonDocument(jsonObj).toJson());
 
-    QTimer::singleShot(3000, this, SLOT(KillCardKilled()));
+
 }
-
-
 
 void KillCardWindow::lukitaSlot(QNetworkReply *reply)
 {
+
+
+    if(reply->error()==QNetworkReply::NoError)
+    {
     response_data = reply->readAll();
     ui->stackedWidget->setCurrentIndex(2); // korttiLukittu
+    QTimer::singleShot(3000, this, SLOT(KillCardKilled()));
+    qInfo() << "Kortti lukitaan!";
+    }
+    else{
+            ui->label_8->setText("PIN väärin");
+    qInfo() << "PIN väärin";
+    }
 }
 
 void KillCardWindow::KillCardKilled()

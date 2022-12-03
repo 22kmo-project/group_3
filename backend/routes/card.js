@@ -66,7 +66,7 @@ function(request, response) {
             bcrypt.compare(request.body.pin, dbResult[0].pin, function(err, compareResult) {
                 if (!compareResult) {
                     console.log("ei täsmää");
-                    response.send(false);
+                    response.sendStatus(400); //Bad request
                 } else {
                   card.update(request.params.cardNumber, request.body, function(err, dbResult) {
                     if (err) {
