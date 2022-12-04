@@ -15,7 +15,7 @@ class BalanceWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit BalanceWindow(QWidget *parent = nullptr);
+    explicit BalanceWindow(QByteArray token, QWidget *parent = nullptr);
     ~BalanceWindow();
 
 private slots:
@@ -23,6 +23,7 @@ private slots:
 
 private:
     Ui::BalanceWindow *ui;
+    QByteArray webToken;
 };
 
 #endif // BALANCEWINDOW_H

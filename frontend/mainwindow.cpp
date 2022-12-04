@@ -32,13 +32,6 @@ void MainWindow::loginSlot(QNetworkReply *reply)
                 ui->labelInfo->setText("Tunnus ja salasana eivät täsmää");
                 qInfo() << "Tunnus ja salasana eivät täsmää";
             } else {
-
-                objectMenuWindow = new MenuWindow(cardNumber, "123123");
-                connect(objectMenuWindow, SIGNAL(rejected()), this, SLOT(showMainWindowSlot()));
-                objectMenuWindow->setWebToken("Bearer " + responseData);
-                objectMenuWindow->show();
-                this->hide();
-
                 // Login successful, do your thing.
                 resetTextFields();
                 webToken = responseData;
@@ -77,7 +70,7 @@ QString MainWindow::getCardType()
     QString siteUrl="http://localhost:3000/card/type/"+cardNumber;
     QNetworkRequest request((siteUrl));
 
-    request.setRawHeader(QByteArray("Authorization"),(webToken));
+    request.setRawHeader(QByteArray("Authorization"),("Bearer " + webToken));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
     cardTypeManager = new QNetworkAccessManager(this);
@@ -107,7 +100,7 @@ void MainWindow::getAccountNumber()
     }
     QNetworkRequest request((siteUrl));
 
-    request.setRawHeader(QByteArray("Authorization"),(webToken));
+    request.setRawHeader(QByteArray("Authorization"),("Bearer " + webToken));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
     accountNumberManager = new QNetworkAccessManager(this);

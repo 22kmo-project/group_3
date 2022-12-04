@@ -1,13 +1,14 @@
 #include "eventswindow.h"
 #include "ui_eventswindow.h"
 
-EventsWindow::EventsWindow(QString cardNumber, QString accountNumber, QWidget *parent) :
+EventsWindow::EventsWindow(QByteArray token, QString cardNumber, QString accountNumber, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::EventsWindow)
 {
     ui->setupUi(this);
     myCardNumber = cardNumber;
     myAccountNumber = accountNumber;
+    webToken = token;
     ui->noEventsLabel->setVisible(false);
     this->getEventsLog();
 }
@@ -21,11 +22,6 @@ void EventsWindow::on_BackButton_clicked()
 {
     this->close();
     delete this;
-}
-
-void EventsWindow::setWebToken(const QByteArray &newWebToken)
-{
-    webToken = newWebToken;
 }
 
 void EventsWindow::getEventsLog()

@@ -4,23 +4,19 @@
 #include "ui_menuwindow.h"
 
 
-KillCardWindow::KillCardWindow(QString cardNumber, QWidget *parent) :
+KillCardWindow::KillCardWindow(QByteArray token, QString cardNumber, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::KillCardWindow)
 {
     ui->setupUi(this);
     myCardNumber = cardNumber;
+    webToken = token;
     ui->stackedWidget->setCurrentIndex(0);
 }
 
 KillCardWindow::~KillCardWindow()
 {
     delete ui;
-}
-
-void KillCardWindow::setWebToken(const QByteArray &newWebToken)
-{
-    webToken = newWebToken;
 }
 
 void KillCardWindow::on_confirmYesButton_clicked()
@@ -46,7 +42,6 @@ void KillCardWindow::on_confirmKillCard_clicked()
     //Kortin lukitus
     int is_active = 0;
 
-
     QString pin = ui->pinText->toPlainText();
 
     QJsonObject jsonObj;
@@ -54,7 +49,7 @@ void KillCardWindow::on_confirmKillCard_clicked()
     jsonObj.insert("pin", pin);
     jsonObj.insert("is_active", is_active);
 
-    QString site_url="http://localhost:3000/card/"+myCardNumber+"";
+    QString site_url="http://localhost:3000/card/killcard/"+myCardNumber+"";
     QNetworkRequest request((site_url));
 
     request.setRawHeader(QByteArray("Authorization"),(webToken));
@@ -69,8 +64,6 @@ void KillCardWindow::on_confirmKillCard_clicked()
 
 void KillCardWindow::lukitaSlot(QNetworkReply *reply)
 {
-
-
     if(reply->error()==QNetworkReply::NoError)
     {
     response_data = reply->readAll();

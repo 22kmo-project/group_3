@@ -15,10 +15,8 @@ class EventsWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit EventsWindow(QString cardNumber, QString accountNumber, QWidget *parent = nullptr);
+    explicit EventsWindow(QByteArray token, QString cardNumber, QString accountNumber, QWidget *parent = nullptr);
     ~EventsWindow();
-
-    void setWebToken(const QByteArray &newWebToken);
 
 private slots:
     void on_BackButton_clicked();
