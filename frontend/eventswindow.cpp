@@ -8,6 +8,7 @@ EventsWindow::EventsWindow(QString cardNumber, QString accountNumber, QWidget *p
     ui->setupUi(this);
     myCardNumber = cardNumber;
     myAccountNumber = accountNumber;
+    ui->noEventsLabel->setVisible(false);
     this->getEventsLog();
 }
 
@@ -48,12 +49,40 @@ void EventsWindow::eventsSlot(QNetworkReply *reply)
     QJsonDocument jsonDoc = QJsonDocument::fromJson(reply->readAll());
     QJsonArray jsonArray = jsonDoc.array();
     QString eventslog = "";
-    foreach (const QJsonValue &value, jsonArray) {
-        QJsonObject jsonObj = value.toObject();
-        eventslog+=jsonObj["event"].toString()+", " + QString::number(jsonObj["amount"].toInt())+" , "+
-        jsonObj["datetime"].toString()+"\r\n";
+    int rowCount = jsonArray.count();
+    if (rowCount > 0) {
+        this->configureEventLogTable(rowCount);
+        int column = 0;
+        foreach (const QJsonValue &value, jsonArray) {
+            QJsonObject jsonObj = value.toObject();
+            QString event = jsonObj["event"].toString();
+            if (event == "Withdraw") {
+                event = "Nosto";
+            }
+            ui->eventLogTableWidget->setItem(column, 0, new QTableWidgetItem(event));
+            ui->eventLogTableWidget->setItem(column, 1, new QTableWidgetItem(QString::number(jsonObj["amount"].toDouble())));
+            QString datetime = jsonObj["datetime"].toString();
+            datetime.replace("T", " ").replace(".000Z", "");
+            ui->eventLogTableWidget->setItem(column, 2, new QTableWidgetItem(datetime));
+            ++column;
+        }
+    } else {
+        // Ei tapahtumalogeja.
+        ui->noEventsLabel->setVisible(true);
     }
     reply->deleteLater();
     eventManager->deleteLater();
+}
+
+void EventsWindow::configureEventLogTable(int rowCount)
+{
+    ui->eventLogTableWidget->setRowCount(rowCount);
+    ui->eventLogTableWidget->setColumnCount(3);
+    ui->eventLogTableWidget->verticalHeader()->setVisible(false);
+    ui->eventLogTableWidget->setHorizontalHeaderLabels(QStringList({"Tapahtuma", "Määrä", "Päiväys"}));
+    ui->eventLogTableWidget->setColumnWidth(0, 100);
+    ui->eventLogTableWidget->setColumnWidth(1, 100);
+    ui->eventLogTableWidget->setColumnWidth(2, 200);
+    ui->eventLogTableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
