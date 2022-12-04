@@ -63,26 +63,39 @@
     <string/>
    </property>
   </widget>
-  <widget class="QTableView" name="eventsTableView">
+  <widget class="QTableWidget" name="eventLogTableWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>100</y>
+     <y>90</y>
      <width>551</width>
-     <height>171</height>
+     <height>181</height>
     </rect>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+  </widget>
+  <widget class="QLabel" name="noEventsLabel">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>150</y>
+     <width>321</width>
+     <height>51</height>
+    </rect>
    </property>
-   <property name="horizontalScrollBarPolicy">
-    <enum>Qt::ScrollBarAlwaysOff</enum>
+   <property name="font">
+    <font>
+     <pointsize>24</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Tapahtumia ei löytynyt</string>
    </property>
   </widget>
-  <zorder>label_13</zorder>
-  <zorder>label_14</zorder>
+  <zorder>event_topic</zorder>
+  <zorder>event_bottom</zorder>
   <zorder>BackButton</zorder>
-  <zorder>eventsTableView</zorder>
+  <zorder>eventLogTableWidget</zorder>
+  <zorder>noEventsLabel</zorder>
  </widget>
  <resources/>
  <connections/>

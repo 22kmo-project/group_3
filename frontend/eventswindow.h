@@ -1,8 +1,6 @@
 #ifndef EVENTSWINDOW_H
 #define EVENTSWINDOW_H
 
-
-
 #include <QDialog>
 #include <QtNetwork>
 #include <QNetworkAccessManager>
@@ -26,6 +24,7 @@ private slots:
     void on_BackButton_clicked();
     void eventsSlot(QNetworkReply *reply);
     void getEventsLog();
+    void configureEventLogTable(int rowCount);
 
 private:
     Ui::EventsWindow *ui;
