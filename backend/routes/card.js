@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const card = require('../models/card_model');
 const bcrypt = require('bcryptjs');
+
 router.get('/:cardNumber',
  function(request, response) {
   if (request.params.cardNumber) {
@@ -52,13 +53,23 @@ function(request, response) {
   });
 });
 
-
 router.put('/:cardNumber', 
+function(request, response) {
+  card.update(request.params.cardNumber, request.body, function(err, dbResult) {
+    if (err) {
+      response.json(err);
+    } else {
+      response.json(dbResult);
+    }
+  });
+});
+
+router.put('/killcard/:cardNumber',
 function(request, response) {
   card.checkPin(request.params.cardNumber, function(dbError, dbResult) {
     if (dbError) {
       console.log("cpl")
-        response.json(dbError.errno);
+      response.json(dbError.errno);
     } else {
         if (dbResult.length > 0) {
           console.log("parametripin",request.body.pin)

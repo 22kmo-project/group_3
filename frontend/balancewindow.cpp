@@ -1,11 +1,12 @@
 #include "balancewindow.h"
 #include "ui_balancewindow.h"
 
-BalanceWindow::BalanceWindow(QWidget *parent) :
+BalanceWindow::BalanceWindow(QByteArray token, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::BalanceWindow)
 {
     ui->setupUi(this);
+    webToken = token;
 }
 
 BalanceWindow::~BalanceWindow()

@@ -15,7 +15,7 @@ class WithdrawWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit WithdrawWindow(QWidget *parent = nullptr);
+    explicit WithdrawWindow(QByteArray token, QWidget *parent = nullptr);
     ~WithdrawWindow();
 
 private slots:
@@ -23,6 +23,7 @@ private slots:
 
 private:
     Ui::WithdrawWindow *ui;
+    QByteArray webToken;
 };
 
 #endif // WITHDRAWWINDOW_H

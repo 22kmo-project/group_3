@@ -1,11 +1,12 @@
 #include "withdrawwindow.h"
 #include "ui_withdrawwindow.h"
 
-WithdrawWindow::WithdrawWindow(QWidget *parent) :
+WithdrawWindow::WithdrawWindow(QByteArray token, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::WithdrawWindow)
 {
     ui->setupUi(this);
+    webToken = token;
 }
 
 WithdrawWindow::~WithdrawWindow()
