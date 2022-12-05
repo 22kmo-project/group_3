@@ -3,6 +3,7 @@
 
 #include "ui_menuwindow.h"
 
+
 KillCardWindow::KillCardWindow(QByteArray token, QString cardNumber, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::KillCardWindow)

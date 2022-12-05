@@ -31,7 +31,7 @@ const card = {
     },
 	
     checkPin: function (card_number, is_active, callback) {
-		return db.query('select pin from card where card_number=?, is_active=?', [card_number, is_active], callback);
+		return db.query('select pin from card where card_number=? and is_active=?', [card_number, 1], callback);
 	},
 	
     getType: function (card_number, callback) {

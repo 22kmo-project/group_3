@@ -10,9 +10,8 @@ router.post('/',
         if (request.body.card_number && request.body.pin) {
             const card_number = request.body.card_number;
             const pin = request.body.pin;
-            card.checkPin(card_number, request.body.is_active, function(dbError, dbResult) {
-                if (dbError, request.body.is_active != 0) {
-                    console.log("is_active",request.body.is_active)
+            card.checkPin(card_number, request.body,function(dbError, dbResult) {
+                if (dbError) {
                     response.json(dbError.errno);
                 } else {
                     if (dbResult.length > 0) {

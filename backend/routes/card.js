@@ -66,13 +66,11 @@ function(request, response) {
 
 router.put('/killcard/:cardNumber',
 function(request, response) {
-  card.checkPin(request.params.cardNumber, function(dbError, dbResult) {
+  card.checkPin(request.params.cardNumber, request.body,function(dbError, dbResult) {
     if (dbError) {
       response.json(dbError.errno);
     } else {
         if (dbResult.length > 0) {
-          console.log("parametripin",request.body.pin)
-          console.log("tietokantapin",dbResult[0].pin)
             bcrypt.compare(request.body.pin, dbResult[0].pin, function(err, compareResult) {
                 if (!compareResult) {
                     console.log("ei täsmää");
