@@ -30,8 +30,8 @@ const card = {
         });
     },
 	
-    checkPin: function (card_number, callback) {
-		return db.query('select pin from card where card_number=?', [card_number], callback);
+    checkPin: function (card_number, is_active, callback) {
+		return db.query('select pin from card where card_number=?, is_active=?', [card_number, is_active], callback);
 	},
 	
     getType: function (card_number, callback) {

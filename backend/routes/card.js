@@ -68,7 +68,6 @@ router.put('/killcard/:cardNumber',
 function(request, response) {
   card.checkPin(request.params.cardNumber, function(dbError, dbResult) {
     if (dbError) {
-      console.log("cpl")
       response.json(dbError.errno);
     } else {
         if (dbResult.length > 0) {
