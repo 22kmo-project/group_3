@@ -7,17 +7,15 @@ const dotenv = require('dotenv');
 
 router.post('/',
     function(request, response) {
-        if (request.body.card_number && request.body.pin && request.body.is_active) {
+        if (request.body.card_number && request.body.pin) {
             const card_number = request.body.card_number;
             const pin = request.body.pin;
-            const is_active = request.body.is_active;
-            card.checkPin(card_number, is_active, function(dbError, dbResult) {
-                if (dbError) {
+            card.checkPin(card_number, request.body.is_active, function(dbError, dbResult) {
+                if (dbError, request.body.is_active != 0) {
+                    console.log("is_active",request.body.is_active)
                     response.json(dbError.errno);
                 } else {
                     if (dbResult.length > 0) {
-                        console.log("is_active",request.body.is_active)
-                        console.log("is_active",dbResult[0].is_active)
                         bcrypt.compare(pin, dbResult[0].pin, function(err, compareResult) {
                             if (compareResult) {
 								console.log("success");
