@@ -12,9 +12,9 @@ KillCardWindow::KillCardWindow(QByteArray token, QString cardNumber, QWidget *pa
     myCardNumber = cardNumber;
     webToken = token;
     ui->stackedWidget->setCurrentIndex(0);
-    short a = 10;
+   /* short a = 10;
     QString t = "Syötä PIN";
-    pinCodeText(t,a);
+    pinCodeText(t,a);*/
 }
 
 KillCardWindow::~KillCardWindow()
@@ -75,9 +75,10 @@ void KillCardWindow::lukitaSlot(QNetworkReply *reply)
     qInfo() << "Kortti lukitaan!";
     }
     else{
-        short a = 10;
-        QString t = "Väärä PIN";
-        pinCodeText(t,a);
+       // short a = 20;
+       // QString t = "Väärä PIN";
+      //  pinCodeText(t,a);
+        ui->label_pin->setText("PIN väärin");
         qInfo() << "PIN väärin";
     }
 }
@@ -88,11 +89,11 @@ void KillCardWindow::KillCardKilled()
     delete this;
 }
 
-void KillCardWindow::pinCodeText(QString pincode, short luku)
+/*void KillCardWindow::pinCodeText(QString pincode, short luku)
 {
     ui->label_pin->setText(pincode);
     QFont font = ui->label_pin->font();
     font.setPointSize(luku);
     font.setBold(true);
     ui->label_pin->setFont(font);
-}
+}*/
