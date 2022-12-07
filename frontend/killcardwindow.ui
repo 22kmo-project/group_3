@@ -13,6 +13,11 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QLabel {
+color: white;
+}</string>
+  </property>
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
@@ -29,11 +34,14 @@
     <widget class="QPushButton" name="confirmYesButton">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>240</y>
-       <width>80</width>
-       <height>24</height>
+       <x>89</x>
+       <y>213</y>
+       <width>161</width>
+       <height>81</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
      </property>
      <property name="text">
       <string>Kyllä</string>
@@ -74,11 +82,14 @@
     <widget class="QPushButton" name="confirmNoButton">
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>240</y>
-       <width>80</width>
-       <height>24</height>
+       <x>309</x>
+       <y>213</y>
+       <width>161</width>
+       <height>81</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
      </property>
      <property name="text">
       <string>Ei</string>
@@ -87,8 +98,8 @@
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>140</y>
+       <x>90</x>
+       <y>110</y>
        <width>381</width>
        <height>61</height>
       </rect>
@@ -97,7 +108,7 @@
       <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
      </property>
      <property name="text">
-      <string>Haluatko varmasti sulkea kortin</string>
+      <string>Haluatko varmasti lukita kortin</string>
      </property>
     </widget>
     <zorder>label_1</zorder>
@@ -126,37 +137,46 @@
     <widget class="QPushButton" name="confirmKillCard">
      <property name="geometry">
       <rect>
-       <x>349</x>
+       <x>309</x>
        <y>260</y>
-       <width>131</width>
-       <height>24</height>
+       <width>251</width>
+       <height>51</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 16pt &quot;Segoe UI&quot;;</string>
+     </property>
      <property name="text">
-      <string>Poista kortti</string>
+      <string>Lukitse kortti</string>
      </property>
     </widget>
     <widget class="QPushButton" name="cancelKillCard">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>10</x>
        <y>260</y>
-       <width>221</width>
-       <height>24</height>
+       <width>251</width>
+       <height>51</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 16pt &quot;Segoe UI&quot;;</string>
+     </property>
      <property name="text">
-      <string>En haluakaan kuolettaa korttia</string>
+      <string>En haluakaan lukita korttia</string>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="pinText">
      <property name="geometry">
       <rect>
-       <x>153</x>
+       <x>130</x>
        <y>170</y>
        <width>321</width>
        <height>70</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_5">
@@ -178,7 +198,7 @@
     <widget class="QLabel" name="label_pin">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>130</x>
        <y>110</y>
        <width>141</width>
        <height>51</height>
@@ -188,20 +208,7 @@
       <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
      </property>
      <property name="text">
-      <string>Syön Pin</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_8">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>110</y>
-       <width>211</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
+      <string>Syötä Pin</string>
      </property>
     </widget>
     <zorder>label_4</zorder>
@@ -210,7 +217,6 @@
     <zorder>confirmKillCard</zorder>
     <zorder>pinText</zorder>
     <zorder>label_pin</zorder>
-    <zorder>label_8</zorder>
    </widget>
    <widget class="QWidget" name="killCardKilled">
     <widget class="QLabel" name="label">
@@ -258,7 +264,7 @@
       <string notr="true">font: 18pt &quot;Segoe UI&quot;;</string>
      </property>
      <property name="text">
-      <string>Kortti on suljettu, jos haluat sen uudelleen käyttöön, ole yhteydessä ylläpitoon</string>
+      <string>Kortti on lukittu, jos haluat sen uudelleen käyttöön, ole yhteydessä ylläpitoon</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>

@@ -35,6 +35,7 @@ private:
     QByteArray response_data;
     QByteArray webToken;
     QString myCardNumber;
+    void pinCodeText(QString, short);
 };
 
 #endif // KILLCARDWINDOW_H
