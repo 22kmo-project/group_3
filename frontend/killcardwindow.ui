@@ -205,7 +205,7 @@ color: white;
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>Syötä Pin</string>
