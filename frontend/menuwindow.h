@@ -18,7 +18,7 @@ class MenuWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit MenuWindow(QString cardNumber, QString accountNumber, QWidget *parent = nullptr);
+    explicit MenuWindow(QString cardNumber, QString accountNumber, QString cardType, QWidget *parent = nullptr);
     ~MenuWindow();
 
     const QString &getWebToken() const;
@@ -43,6 +43,7 @@ private:
     QByteArray webToken;
     QString myCardNumber;
     QString myAccountNumber;
+    QString myCardType;
 
     QNetworkAccessManager *dataManager;
     QNetworkReply *reply;

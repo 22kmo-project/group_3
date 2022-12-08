@@ -57,7 +57,7 @@ void MainWindow::resetTextFields()
 
 void MainWindow::openMenuWindow()
 {
-    objectMenuWindow = new MenuWindow(cardNumber, accountNumber);
+    objectMenuWindow = new MenuWindow(cardNumber, accountNumber, cardType);
     connect(objectMenuWindow, SIGNAL(rejected()), this, SLOT(showMainWindowSlot()));
     objectMenuWindow->setWebToken("Bearer " + webToken);
     objectMenuWindow->show();

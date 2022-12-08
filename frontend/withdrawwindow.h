@@ -5,6 +5,7 @@
 #include <QtNetwork>
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
+#include <QValidator>
 
 namespace Ui {
 class WithdrawWindow;
@@ -15,15 +16,34 @@ class WithdrawWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit WithdrawWindow(QByteArray token, QWidget *parent = nullptr);
+    explicit WithdrawWindow(QByteArray token, QString cardNumber, QString accountNumber, QString cardType, QWidget *parent = nullptr);
     ~WithdrawWindow();
 
 private slots:
     void on_backButton_clicked();
+    void on_withdrawButton_clicked();
+
+    int GetBalance();
+    void Withdraw();
+    void LogWithdraw();
 
 private:
     Ui::WithdrawWindow *ui;
     QByteArray webToken;
+
+    QString myAccountNumber;
+    QString myCardNumber;
+    QString myCardType;
+
+    QNetworkAccessManager *balanceManager;
+    QNetworkAccessManager *withdrawManager;
+    QNetworkAccessManager *logManager;
+    QNetworkReply *balanceReply;
+    QNetworkReply *withdrawReply;
+    QNetworkReply *logReply;
+    QByteArray withdrawResponse;
+
+    int withdrawAmount;
 };
 
 #endif // WITHDRAWWINDOW_H

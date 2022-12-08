@@ -2,17 +2,19 @@
 #include "ui_menuwindow.h"
 #include "qdebug.h"
 
-MenuWindow::MenuWindow(QString cardNumber, QString accountNumber, QWidget *parent) :
+MenuWindow::MenuWindow(QString cardNumber, QString accountNumber, QString cardType, QWidget *parent) :
     QDialog(parent), ui(new Ui::MenuWindow)
 {
     ui->setupUi(this);
     myCardNumber = cardNumber;
     myAccountNumber = accountNumber;
+    myCardType = cardType;
 }
 
 MenuWindow::~MenuWindow()
 {
     delete ui;
+    webToken = nullptr;
     objectEventsWindow = nullptr;
     objectWithdrawWindow = nullptr;
     objectBalanceWindow = nullptr;
@@ -38,7 +40,7 @@ void MenuWindow::on_eventsButton_clicked()
 
 void MenuWindow::on_withdrawButton_clicked()
 {
-    objectWithdrawWindow = new WithdrawWindow(webToken);
+    objectWithdrawWindow = new WithdrawWindow(webToken, myCardNumber, myAccountNumber, myCardType);
     objectWithdrawWindow->show();
 }
 

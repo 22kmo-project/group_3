@@ -52,4 +52,32 @@ function(request, response) {
   });
 });
 
+router.get('/balance/:accountNumber/:useCredit',
+ function(request, response) {
+  const accountNumber = request.params.accountNumber;
+  const useCredit = request.params.useCredit;
+  if (accountNumber && useCredit) {
+    account.getBalance(accountNumber, useCredit, function(err, dbResult) {
+      if (err) {
+        response.json(err);
+      } else {
+        response.json(dbResult[0]);
+      }
+    });
+  }
+});
+
+router.put('/withdraw/:accountNumber', 
+function(request, response) {
+	const accountNumber = request.params.accountNumber;
+	const useCredit = request.body.useCredit;
+    account.withdraw(accountNumber, useCredit, request.body, function(err, dbResult) {
+        if (err) {
+            response.json(err);
+        } else {
+            response.json(dbResult);
+        }
+    });
+});
+
 module.exports = router;

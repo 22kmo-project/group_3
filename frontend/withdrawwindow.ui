@@ -52,7 +52,7 @@ color: white;
     <string notr="true">image: url(:/images/default.png);</string>
    </property>
    <property name="text">
-    <string>    NOSTO</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="backButton">
@@ -66,6 +66,65 @@ color: white;
    </property>
    <property name="text">
     <string>Takaisin</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="amountLabel">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>175</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>24</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Määrä</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="withdrawLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>150</y>
+     <width>271</width>
+     <height>71</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="withdrawButton">
+   <property name="geometry">
+    <rect>
+     <x>387</x>
+     <y>240</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Nosta</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="infoLabel">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>100</y>
+     <width>501</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>22</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
