@@ -16,6 +16,22 @@ const account = {
 	
     update: function (accountNumber, data, callback) {
         return db.query('update account set account_number=?, balance=?, credit_limit=? where account_number=?', [data.account_number, data.balance, data.credit_limit, accountNumber], callback);
+    },
+	
+	getBalance: function (accountNumber, useCredit, callback) {
+		if (useCredit == 0) {
+			return db.query('select balance from account where account_number = ?', [accountNumber], callback);
+		} else {
+			return db.query('select credit_limit from account where account_number = ?', [accountNumber], callback);
+		}
+    },
+	
+	withdraw: function (accountNumber, useCredit, data, callback) {
+		if (useCredit == 0) {
+            return db.query('update account set balance = balance - ? where account_number = ?', [data.withdrawAmount, accountNumber], callback);
+		} else {
+            return db.query('update account set credit_limit = credit_limit - ? where account_number = ?', [data.withdrawAmount, accountNumber], callback);
+		}
     }
 };
 
