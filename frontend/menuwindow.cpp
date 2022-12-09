@@ -1,6 +1,7 @@
 #include "menuwindow.h"
 #include "ui_menuwindow.h"
 #include "qdebug.h"
+#include <QTimer>
 
 MenuWindow::MenuWindow(QString cardNumber, QString accountNumber, QString cardType, QWidget *parent) :
     QDialog(parent), ui(new Ui::MenuWindow)
@@ -9,6 +10,7 @@ MenuWindow::MenuWindow(QString cardNumber, QString accountNumber, QString cardTy
     myCardNumber = cardNumber;
     myAccountNumber = accountNumber;
     myCardType = cardType;
+    ui->stackedWidget->setCurrentIndex(0);
 }
 
 MenuWindow::~MenuWindow()
@@ -28,8 +30,11 @@ void MenuWindow::setWebToken(const QByteArray &newWebToken)
 
 void MenuWindow::on_logoutButton_clicked()
 {
-    this->close();
-    delete this;
+    ui->label_5->setText("Sivu sulkeutuu: 5");
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(KirjauduUlos()));
+    timer->start(1000);
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 void MenuWindow::on_eventsButton_clicked()
@@ -54,4 +59,18 @@ void MenuWindow::on_killCardButton_clicked()
 {
     objectKillCardWindow = new KillCardWindow(webToken, myCardNumber);
     objectKillCardWindow->show();
+}
+
+void MenuWindow::KirjauduUlos()
+{
+    sec--;
+    if(sec==-1)
+    {
+        qDebug()<< "Ok";
+        timer->stop();
+        this->close();
+        delete this;
+    }
+    else
+    ui->label_5->setText(QString("Sivu sulkeutuu: %1").arg(sec));
 }

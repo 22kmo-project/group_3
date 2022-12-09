@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>570</width>
+    <height>321</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,8 +23,8 @@ color: white;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
-     <height>400</height>
+     <width>571</width>
+     <height>321</height>
     </rect>
    </property>
    <property name="currentIndex">
@@ -172,7 +172,7 @@ color: white;
        <x>130</x>
        <y>170</y>
        <width>321</width>
-       <height>70</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -205,7 +205,7 @@ color: white;
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
      </property>
      <property name="text">
       <string>Syötä Pin</string>
@@ -255,9 +255,9 @@ color: white;
      <property name="geometry">
       <rect>
        <x>110</x>
-       <y>100</y>
+       <y>90</y>
        <width>361</width>
-       <height>151</height>
+       <height>121</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -268,6 +268,22 @@ color: white;
      </property>
      <property name="wordWrap">
       <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>210</y>
+       <width>331</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
