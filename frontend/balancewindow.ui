@@ -52,7 +52,7 @@ color: white;
     <string notr="true">image: url(:/images/default.png);</string>
    </property>
    <property name="text">
-    <string>              SALDOOOOOOOO</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="backButton">
@@ -66,6 +66,29 @@ color: white;
    </property>
    <property name="text">
     <string>Takaisin</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>140</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>90</y>
+     <width>291</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Saldo&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>
