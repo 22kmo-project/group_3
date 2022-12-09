@@ -35,7 +35,8 @@ private:
     QByteArray response_data;
     QByteArray webToken;
     QString myCardNumber;
-    void pinCodeText(QString, short);
+    QTimer * Timer;
+    int sec = 5;
 };
 
 #endif // KILLCARDWINDOW_H

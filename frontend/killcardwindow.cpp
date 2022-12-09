@@ -1,7 +1,6 @@
 #include "killcardwindow.h"
 #include "ui_killcardwindow.h"
-
-#include "ui_menuwindow.h"
+#include <QTimer>
 
 
 KillCardWindow::KillCardWindow(QByteArray token, QString cardNumber, QWidget *parent) :
@@ -12,9 +11,6 @@ KillCardWindow::KillCardWindow(QByteArray token, QString cardNumber, QWidget *pa
     myCardNumber = cardNumber;
     webToken = token;
     ui->stackedWidget->setCurrentIndex(0);
-   /* short a = 10;
-    QString t = "Syötä PIN";
-    pinCodeText(t,a);*/
 }
 
 KillCardWindow::~KillCardWindow()
@@ -71,13 +67,15 @@ void KillCardWindow::lukitaSlot(QNetworkReply *reply)
     {
     response_data = reply->readAll();
     ui->stackedWidget->setCurrentIndex(2); // korttiLukittu
-    QTimer::singleShot(3000, this, SLOT(KillCardKilled()));
+
+    ui->label_8->setText("Sivu sulkeutuu: 5");
+    Timer = new QTimer(this);
+    connect(Timer, SIGNAL(timeout()), this, SLOT(KillCardKilled()));
+    Timer->start(1000);
+
     qInfo() << "Kortti lukitaan!";
     }
     else{
-       // short a = 20;
-       // QString t = "Väärä PIN";
-      //  pinCodeText(t,a);
         ui->label_pin->setText("PIN väärin");
         qInfo() << "PIN väärin";
     }
@@ -85,15 +83,14 @@ void KillCardWindow::lukitaSlot(QNetworkReply *reply)
 
 void KillCardWindow::KillCardKilled()
 {
-    this->close();
-    delete this;
+    sec--;
+    if(sec==-1)
+    {
+        qDebug()<< "Ok";
+        Timer->stop();
+        this->close();
+        delete this;
+    }
+    else
+    ui->label_8->setText(QString("Sivu sulkeutuu: %1").arg(sec));
 }
-
-/*void KillCardWindow::pinCodeText(QString pincode, short luku)
-{
-    ui->label_pin->setText(pincode);
-    QFont font = ui->label_pin->font();
-    font.setPointSize(luku);
-    font.setBold(true);
-    ui->label_pin->setFont(font);
-}*/

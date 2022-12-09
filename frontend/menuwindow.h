@@ -31,6 +31,7 @@ private slots:
     void on_withdrawButton_clicked();
     void on_balanceButton_clicked();
     void on_killCardButton_clicked();
+    void KirjauduUlos();
 
 private:
     Ui::MenuWindow *ui;
@@ -48,8 +49,8 @@ private:
     QNetworkAccessManager *dataManager;
     QNetworkReply *reply;
     QByteArray response_data;
-
-
+    QTimer * timer;
+    int sec = 5;
     //Next possible windows below
     //StudentEdit *objectStudentEdit;
 };
