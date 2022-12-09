@@ -51,7 +51,7 @@ void MenuWindow::on_withdrawButton_clicked()
 
 void MenuWindow::on_balanceButton_clicked()
 {
-    objectBalanceWindow = new BalanceWindow(webToken);
+    objectBalanceWindow = new BalanceWindow(webToken, myAccountNumber, myCardType);
     objectBalanceWindow->show();
 }
 
