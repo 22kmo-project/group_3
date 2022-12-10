@@ -32,12 +32,12 @@ void WithdrawWindow::on_withdrawButton_clicked()
     ui->infoLabel->setText("");
     QString withdrawAmountString = ui->withdrawLineEdit->text();
     withdrawAmount = withdrawAmountString.toInt();
-    if (withdrawAmount % 10 != 0) {
-        ui->infoLabel->setText("Syötä määrä 10 euron nousuilla");
-        return;
-    }
     if (withdrawAmount > 1000) {
         ui->infoLabel->setText("Noston enimmäismäärä on 1000 euroa");
+        return;
+    }
+    if (withdrawAmount % 10 != 0) {
+        ui->infoLabel->setText("Syötä määrä 10 euron nousuilla");
         return;
     }
     int balance = this->GetBalance();
@@ -78,9 +78,9 @@ int WithdrawWindow::GetBalance()
     QJsonObject jsonObj = jsonDoc.object();
 
     if (myCardType == "credit") {
-        balance = QString::number(jsonObj["credit_limit"].toDouble()).toInt();
+        balance = jsonObj["credit_limit"].toVariant().toInt();
     } else {
-        balance = QString::number(jsonObj["balance"].toDouble(), 'f', 0).toInt();
+        balance = jsonObj["balance"].toVariant().toInt();
     }
 
     balanceReply->deleteLater();

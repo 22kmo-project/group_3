@@ -95,6 +95,11 @@ color: white;
      <height>71</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>24</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="QPushButton" name="withdrawButton">
    <property name="geometry">
