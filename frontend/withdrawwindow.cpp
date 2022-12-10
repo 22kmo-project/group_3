@@ -1,5 +1,6 @@
 #include "withdrawwindow.h"
 #include "ui_withdrawwindow.h"
+#include <QTimer>
 
 WithdrawWindow::WithdrawWindow(QByteArray token, QString cardNumber, QString accountNumber, QString cardType, QWidget *parent) :
     QDialog(parent),
@@ -12,7 +13,7 @@ WithdrawWindow::WithdrawWindow(QByteArray token, QString cardNumber, QString acc
     myAccountNumber = accountNumber;
     myCardType = cardType;
 
-    ui->withdrawLineEdit->setValidator(new QIntValidator(10, 1000, this));
+    ui->nosto2LineEdit->setValidator(new QIntValidator(10, 1000, this));
 }
 
 WithdrawWindow::~WithdrawWindow()
@@ -26,28 +27,6 @@ void WithdrawWindow::on_backButton_clicked()
     delete this;
 }
 
-
-void WithdrawWindow::on_withdrawButton_clicked()
-{
-    ui->infoLabel->setText("");
-    QString withdrawAmountString = ui->withdrawLineEdit->text();
-    withdrawAmount = withdrawAmountString.toInt();
-    if (withdrawAmount > 1000) {
-        ui->infoLabel->setText("Noston enimmäismäärä on 1000 euroa");
-        return;
-    }
-    if (withdrawAmount % 10 != 0) {
-        ui->infoLabel->setText("Syötä määrä 10 euron nousuilla");
-        return;
-    }
-    int balance = this->GetBalance();
-    if (balance >= withdrawAmount) {
-        this->Withdraw();
-        this->close();
-    } else {
-        ui->infoLabel->setText("Tilin saldo ei ole riittävä");
-    }
-}
 
 int WithdrawWindow::GetBalance()
 {
@@ -151,3 +130,44 @@ void WithdrawWindow::LogWithdraw()
     logReply->deleteLater();
     logManager->deleteLater();
 }
+
+void WithdrawWindow::on_nosto2Button_clicked()
+{
+    ui->infoLabel2->setText("");
+    QString withdrawAmountString = ui->nosto2LineEdit->text();
+    withdrawAmount = withdrawAmountString.toInt();
+    if (withdrawAmount > 1000) {
+        ui->infoLabel2->setText("Noston enimmäismäärä on 1000 euroa");
+        return;
+    }
+    if (withdrawAmount % 10 != 0) {
+        ui->infoLabel2->setText("Syötä määrä 10 euron nousuilla");
+        return;
+    }
+    int balance = this->GetBalance();
+    if (balance >= withdrawAmount) {
+        ui->label_2->setText("Sivu sulkeutuu: 5");
+        laskuri = new QTimer(this);
+        connect(laskuri, SIGNAL(timeout()), this, SLOT(KirjauduUlos2()));
+        laskuri->start(1000);
+        ui->stackedWidget->setCurrentIndex(1);
+
+    } else {
+        ui->infoLabel2->setText("Tilin saldo ei ole riittävä");
+
+    }
+}
+void WithdrawWindow::KirjauduUlos2()
+{
+    sec--;
+    if(sec==-1)
+    {
+        qDebug()<< "Ok";
+        laskuri->stop();
+        this->close();
+        delete this;
+    }
+    else
+    ui->label_2->setText(QString("Sivu sulkeutuu: %1").arg(sec));
+}
+

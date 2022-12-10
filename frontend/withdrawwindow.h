@@ -21,11 +21,11 @@ public:
 
 private slots:
     void on_backButton_clicked();
-    void on_withdrawButton_clicked();
-
     int GetBalance();
     void Withdraw();
     void LogWithdraw();
+    void on_nosto2Button_clicked();
+     void KirjauduUlos2();
 
 private:
     Ui::WithdrawWindow *ui;
@@ -42,6 +42,8 @@ private:
     QNetworkReply *withdrawReply;
     QNetworkReply *logReply;
     QByteArray withdrawResponse;
+      QTimer * laskuri;
+        int sec = 5;
 
     int withdrawAmount;
 };
