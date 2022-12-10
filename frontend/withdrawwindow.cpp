@@ -146,6 +146,7 @@ void WithdrawWindow::on_nosto2Button_clicked()
     }
     int balance = this->GetBalance();
     if (balance >= withdrawAmount) {
+        this->Withdraw();
         ui->label_2->setText("Sivu sulkeutuu: 5");
         laskuri = new QTimer(this);
         connect(laskuri, SIGNAL(timeout()), this, SLOT(KirjauduUlos2()));
