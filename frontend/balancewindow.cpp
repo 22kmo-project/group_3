@@ -26,7 +26,7 @@ void BalanceWindow::on_backButton_clicked()
 
 void BalanceWindow::GetBalance()
 {
-    int balance = 0;
+    QString balance = "0";
     QString siteUrl = "http://localhost:3000/account/balance/" + myAccountNumber;
 
     if (myCardType == "credit") {
@@ -54,16 +54,16 @@ void BalanceWindow::GetBalance()
 
     if (myCardType == "credit") {
         ui->label->setText("Luotto");
-        balance = QString::number(jsonObj["credit_limit"].toDouble()).toInt();
+        balance = jsonObj["credit_limit"].toVariant().toString();
     } else {
         ui->label->setText("Valuutta");
-        balance = QString::number(jsonObj["balance"].toDouble(), 'f', 0).toInt();
+        balance = jsonObj["balance"].toVariant().toString();
     }
 
     balanceReply->deleteLater();
     balanceManager->deleteLater();
 
-    ui->lineEdit->setText(QString::number(balance));
+    ui->lineEdit->setText(balance);
 }
 
 

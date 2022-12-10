@@ -113,7 +113,7 @@ void MainWindow::getAccountNumber()
 
     QJsonDocument jsonDoc = QJsonDocument::fromJson(reply->readAll());
     QJsonObject jsonObj = jsonDoc.object();
-    accountNumber = QString::number(jsonObj["account_number"].toDouble());
+    accountNumber = jsonObj["account_number"].toVariant().toString();
     reply->deleteLater();
     accountNumberManager->deleteLater();
 }
