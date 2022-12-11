@@ -6,6 +6,8 @@
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 
+#include "url.h"
+
 namespace Ui {
 class BalanceWindow;
 }

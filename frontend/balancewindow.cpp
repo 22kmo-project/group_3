@@ -28,7 +28,7 @@ void BalanceWindow::on_backButton_clicked()
 void BalanceWindow::GetBalance()
 {
     QString balance = "0";
-    QString siteUrl = "http://localhost:3000/account/balance/" + myAccountNumber;
+    QString siteUrl = Url::getBaseUrl() + "/account/balance/" + myAccountNumber;
 
     if (myCardType == "credit") {
         siteUrl += "/1";
