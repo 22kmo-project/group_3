@@ -8,6 +8,8 @@ KillCardWindow::KillCardWindow(QByteArray token, QString cardNumber, QWidget *pa
     ui(new Ui::KillCardWindow)
 {
     ui->setupUi(this);
+    this->setWindowFlags(this->windowFlags() & ~Qt::WindowContextHelpButtonHint & ~Qt::WindowSystemMenuHint & ~Qt::WindowCloseButtonHint);
+
     myCardNumber = cardNumber;
     webToken = token;
     ui->stackedWidget->setCurrentIndex(0);
@@ -88,8 +90,7 @@ void KillCardWindow::KillCardKilled()
     {
         qDebug()<< "Ok";
         Timer->stop();
-        this->close();
-        delete this;
+        this->done(QDialog::Accepted);
     }
     else
     ui->label_8->setText(QString("Sivu sulkeutuu: %1").arg(sec));

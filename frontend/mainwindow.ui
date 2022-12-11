@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="accessibleName">
+   <string/>
+  </property>
   <property name="styleSheet">
    <string notr="true">QLabel {
 color: white;
@@ -48,15 +51,15 @@ color: white;
      <widget class="QLabel" name="labelInfo">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>10</x>
         <y>90</y>
-        <width>441</width>
+        <width>581</width>
         <height>41</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>22</pointsize>
+        <pointsize>19</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -64,6 +67,9 @@ color: white;
       </property>
       <property name="text">
        <string>Syötä kortin numero ja pin koodi</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QLabel" name="label_17">
@@ -131,71 +137,49 @@ color: white;
        <string>Kirjaudu</string>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="textCardNumber">
+     <widget class="QLineEdit" name="lineEditCard">
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>140</y>
-        <width>371</width>
-        <height>70</height>
+        <y>150</y>
+        <width>331</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>32</pointsize>
-        <italic>false</italic>
+        <pointsize>24</pointsize>
         <bold>true</bold>
-        <kerning>false</kerning>
        </font>
-      </property>
-      <property name="acceptDrops">
-       <bool>true</bool>
-      </property>
-      <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="plainText">
-       <string/>
       </property>
      </widget>
-     <widget class="QPlainTextEdit" name="textPin">
+     <widget class="QLineEdit" name="lineEditPin">
       <property name="geometry">
        <rect>
         <x>210</x>
-        <y>230</y>
-        <width>271</width>
-        <height>70</height>
+        <y>240</y>
+        <width>281</width>
+        <height>61</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>32</pointsize>
-        <italic>false</italic>
+        <pointsize>24</pointsize>
         <bold>true</bold>
-        <kerning>false</kerning>
        </font>
       </property>
-      <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="plainText">
-       <string/>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
       </property>
      </widget>
      <zorder>label_4</zorder>
      <zorder>label_8</zorder>
      <zorder>label_18</zorder>
      <zorder>loginButton</zorder>
-     <zorder>textCardNumber</zorder>
-     <zorder>textPin</zorder>
      <zorder>labelInfo</zorder>
      <zorder>label_17</zorder>
+     <zorder>lineEditCard</zorder>
+     <zorder>lineEditPin</zorder>
     </widget>
     <widget class="QWidget" name="accountPage">
      <widget class="QLabel" name="label_5">
