@@ -20,10 +20,6 @@ MenuWindow::~MenuWindow()
 {
     delete ui;
     webToken = nullptr;
-    objectEventsWindow = nullptr;
-    objectWithdrawWindow = nullptr;
-    objectBalanceWindow = nullptr;
-    objectKillCardWindow = nullptr;
 }
 
 void MenuWindow::setWebToken(const QByteArray &newWebToken)
@@ -47,26 +43,26 @@ void MenuWindow::on_logoutButton_clicked()
 
 void MenuWindow::on_eventsButton_clicked()
 {
-    objectEventsWindow = new EventsWindow(webToken, myCardNumber, myAccountNumber);
+    objectEventsWindow = new EventsWindow(webToken, myCardNumber, myAccountNumber, this);
     objectEventsWindow->exec();
 }
 
 void MenuWindow::on_withdrawButton_clicked()
 {
-    objectWithdrawWindow = new WithdrawWindow(webToken, myCardNumber, myAccountNumber, myCardType);
+    objectWithdrawWindow = new WithdrawWindow(webToken, myCardNumber, myAccountNumber, myCardType, this);
     connect(objectWithdrawWindow, SIGNAL(accepted()), this, SLOT(logout()));
     objectWithdrawWindow->exec();
 }
 
 void MenuWindow::on_balanceButton_clicked()
 {
-    objectBalanceWindow = new BalanceWindow(webToken, myAccountNumber, myCardType);
+    objectBalanceWindow = new BalanceWindow(webToken, myAccountNumber, myCardType, this);
     objectBalanceWindow->exec();
 }
 
 void MenuWindow::on_killCardButton_clicked()
 {
-    objectKillCardWindow = new KillCardWindow(webToken, myCardNumber);
+    objectKillCardWindow = new KillCardWindow(webToken, myCardNumber, this);
     connect(objectKillCardWindow, SIGNAL(accepted()), this, SLOT(logout()));
     objectKillCardWindow->exec();
 }

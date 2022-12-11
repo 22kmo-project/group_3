@@ -43,7 +43,7 @@ void KillCardWindow::on_confirmKillCard_clicked()
     //Kortin lukitus
     int is_active = 0;
 
-    QString pin = ui->pinText->toPlainText();
+    QString pin = ui->lineEditPin->text();
 
     QJsonObject jsonObj;
     jsonObj.insert("card_number", myCardNumber);

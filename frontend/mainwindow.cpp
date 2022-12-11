@@ -12,8 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete objectMenuWindow;
-    objectMenuWindow = nullptr;
 }
 
 void MainWindow::loginSlot(QNetworkReply *reply)
@@ -31,6 +29,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
                 ui->labelInfo->setText("Tunnus ja salasana eivät täsmää tai kortti on lukittu");
             } else {
                 // Login successful, do your thing.
+                ui->labelInfo->setText("Syötä kortin numero ja pin koodi");
                 resetTextFields();
                 webToken = responseData;
                 cardType = this->getCardType();
@@ -55,7 +54,7 @@ void MainWindow::resetTextFields()
 
 void MainWindow::openMenuWindow()
 {
-    objectMenuWindow = new MenuWindow(cardNumber, accountNumber, cardType);
+    objectMenuWindow = new MenuWindow(cardNumber, accountNumber, cardType, this);
     connect(objectMenuWindow, SIGNAL(rejected()), this, SLOT(showMainWindowSlot()));
     objectMenuWindow->setWebToken("Bearer " + webToken);
     objectMenuWindow->show();
@@ -126,6 +125,10 @@ void MainWindow::on_loginButton_clicked()
 {
     cardNumber = ui->lineEditCard->text();
     QString pin = ui->lineEditPin->text();
+    if (!this->isValidInput(pin)) {
+        ui->labelInfo->setText("Virhe kortti tai pin tiedoissa.");
+        return;
+    }
     QJsonObject jsonObj;
     jsonObj.insert("card_number", cardNumber);
     jsonObj.insert("pin", pin);
@@ -138,6 +141,15 @@ void MainWindow::on_loginButton_clicked()
     connect(loginManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(loginSlot(QNetworkReply*)));
 
     reply = loginManager->post(request, QJsonDocument(jsonObj).toJson());
+}
+
+bool MainWindow::isValidInput(QString pin)
+{
+    if (cardNumber.isEmpty() || pin.length() != 4)
+    {
+        return false;
+    }
+    return true;
 }
 
 void MainWindow::on_creditButton_clicked()

@@ -166,19 +166,6 @@ color: white;
       <string>En haluakaan lukita korttia</string>
      </property>
     </widget>
-    <widget class="QPlainTextEdit" name="pinText">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>170</y>
-       <width>321</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 20pt &quot;Segoe UI&quot;;</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
@@ -211,12 +198,30 @@ color: white;
       <string>Syötä Pin</string>
      </property>
     </widget>
+    <widget class="QLineEdit" name="lineEditPin">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>165</y>
+       <width>321</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+      </font>
+     </property>
+     <property name="echoMode">
+      <enum>QLineEdit::Password</enum>
+     </property>
+    </widget>
     <zorder>label_4</zorder>
     <zorder>label_5</zorder>
     <zorder>cancelKillCard</zorder>
     <zorder>confirmKillCard</zorder>
-    <zorder>pinText</zorder>
     <zorder>label_pin</zorder>
+    <zorder>lineEditPin</zorder>
    </widget>
    <widget class="QWidget" name="killCardKilled">
     <widget class="QLabel" name="label">

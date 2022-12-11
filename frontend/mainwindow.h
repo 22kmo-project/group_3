@@ -28,6 +28,7 @@ private slots:
     QString getCardType();
     void openMenuWindow();
     void resetTextFields();
+    bool isValidInput(QString pin);
 
     void on_creditButton_clicked();
     void on_debitButton_clicked();
