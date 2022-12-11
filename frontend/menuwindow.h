@@ -25,13 +25,16 @@ public:
 
     void setWebToken(const QByteArray &newWebToken);
 
+public slots:
+    void logout();
+
 private slots:
     void on_logoutButton_clicked();
     void on_eventsButton_clicked();
     void on_withdrawButton_clicked();
     void on_balanceButton_clicked();
     void on_killCardButton_clicked();
-    void KirjauduUlos();
+    void checkLogoutTimer();
 
 private:
     Ui::MenuWindow *ui;
@@ -50,9 +53,7 @@ private:
     QNetworkReply *reply;
     QByteArray response_data;
     QTimer * timer;
-    int sec = 5;
-    //Next possible windows below
-    //StudentEdit *objectStudentEdit;
+    int logoutSeconds;
 };
 
 #endif // MENUWINDOW_H

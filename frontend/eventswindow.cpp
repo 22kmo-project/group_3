@@ -6,6 +6,8 @@ EventsWindow::EventsWindow(QByteArray token, QString cardNumber, QString account
     ui(new Ui::EventsWindow)
 {
     ui->setupUi(this);
+    this->setWindowFlags(this->windowFlags() & ~Qt::WindowContextHelpButtonHint & ~Qt::WindowSystemMenuHint & ~Qt::WindowCloseButtonHint);
+
     myCardNumber = cardNumber;
     myAccountNumber = accountNumber;
     webToken = token;
@@ -57,9 +59,9 @@ void EventsWindow::eventsSlot(QNetworkReply *reply)
             }
             ui->eventLogTableWidget->setItem(column, 0, new QTableWidgetItem(event));
             ui->eventLogTableWidget->setItem(column, 1, new QTableWidgetItem(QString::number(jsonObj["amount"].toDouble())));
-            QString datetime = jsonObj["datetime"].toString();
-            datetime.replace("T", " ").replace(".000Z", "");
-            ui->eventLogTableWidget->setItem(column, 2, new QTableWidgetItem(datetime));
+            QDateTime dateTime = jsonObj["datetime"].toVariant().toDateTime();
+            QDateTime localDateTime = dateTime.toLocalTime();
+            ui->eventLogTableWidget->setItem(column, 2, new QTableWidgetItem(localDateTime.toString("yyyy-MM-dd hh:mm:ss")));
             ++column;
         }
     } else {

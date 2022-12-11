@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setWindowFlags(this->windowFlags() & ~Qt::WindowMinMaxButtonsHint);
 }
 
 MainWindow::~MainWindow()
@@ -20,17 +21,14 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     responseData = reply->readAll();
     int test = QString::compare(responseData, "false");
     if (responseData.length() == 0){
-        qInfo() << "Palvelin ei vastaa";
         ui->labelInfo->setText("Palvelin ei vastaa");
     } else {
         if (QString::compare(responseData, "-4078") == 0) {
             ui->labelInfo->setText("Virhe tietokanta yhteydessä");
-            qInfo() << "Virhe tietokanta yhteydessä";
         } else {
             if (test == 0) {
                 resetTextFields();
-                ui->labelInfo->setText("Tunnus ja salasana eivät täsmää");
-                qInfo() << "Tunnus ja salasana eivät täsmää";
+                ui->labelInfo->setText("Tunnus ja salasana eivät täsmää tai kortti on lukittu");
             } else {
                 // Login successful, do your thing.
                 resetTextFields();
@@ -51,8 +49,8 @@ void MainWindow::loginSlot(QNetworkReply *reply)
 
 void MainWindow::resetTextFields()
 {
-    ui->textCardNumber->clear();
-    ui->textPin->clear();
+    ui->lineEditCard->clear();
+    ui->lineEditPin->clear();
 }
 
 void MainWindow::openMenuWindow()
@@ -126,8 +124,8 @@ void MainWindow::showMainWindowSlot()
 
 void MainWindow::on_loginButton_clicked()
 {
-    cardNumber = ui->textCardNumber->toPlainText();
-    QString pin = ui->textPin->toPlainText();
+    cardNumber = ui->lineEditCard->text();
+    QString pin = ui->lineEditPin->text();
     QJsonObject jsonObj;
     jsonObj.insert("card_number", cardNumber);
     jsonObj.insert("pin", pin);

@@ -66,7 +66,7 @@ color: white;
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>85</y>
+       <y>81</y>
        <width>571</width>
        <height>241</height>
       </rect>
@@ -78,7 +78,7 @@ color: white;
       <string/>
      </property>
     </widget>
-    <widget class="QPushButton" name="nosto2Button">
+    <widget class="QPushButton" name="withdrawButton">
      <property name="geometry">
       <rect>
        <x>390</x>
@@ -100,8 +100,14 @@ color: white;
        <height>71</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>24</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
     </widget>
-    <widget class="QLabel" name="infoLabel2">
+    <widget class="QLabel" name="infoLabel">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -131,15 +137,27 @@ color: white;
      <property name="geometry">
       <rect>
        <x>80</x>
-       <y>175</y>
+       <y>170</y>
        <width>91</width>
        <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>22</pointsize>
+      </font>
+     </property>
      <property name="text">
-      <string/>
+      <string>Määrä</string>
      </property>
     </widget>
+    <zorder>label_4</zorder>
+    <zorder>label_5</zorder>
+    <zorder>backButton</zorder>
+    <zorder>amount2Label</zorder>
+    <zorder>infoLabel</zorder>
+    <zorder>withdrawButton</zorder>
+    <zorder>nosto2LineEdit</zorder>
    </widget>
    <widget class="QWidget" name="nosto_kiitos">
     <widget class="QLabel" name="label">
@@ -162,7 +180,7 @@ color: white;
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>85</y>
+       <y>81</y>
        <width>571</width>
        <height>241</height>
       </rect>
@@ -174,25 +192,12 @@ color: white;
       <string/>
      </property>
     </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>210</y>
-       <width>451</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>110</y>
-       <width>431</width>
+       <x>90</x>
+       <y>150</y>
+       <width>391</width>
        <height>81</height>
       </rect>
      </property>

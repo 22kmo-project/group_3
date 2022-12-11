@@ -6,6 +6,7 @@ BalanceWindow::BalanceWindow(QByteArray token, QString accountNumber, QString ca
     ui(new Ui::BalanceWindow)
 {
     ui->setupUi(this);
+    this->setWindowFlags(this->windowFlags() & ~Qt::WindowContextHelpButtonHint & ~Qt::WindowSystemMenuHint & ~Qt::WindowCloseButtonHint);
 
     webToken = token;
     myAccountNumber = accountNumber;

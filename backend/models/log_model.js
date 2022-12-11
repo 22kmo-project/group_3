@@ -20,6 +20,13 @@ const log = {
         [log.account_number, log.card_number, log.event, log.amount, log.datetime], // Määrittele lisättävät judut
         callback
         );
-  }
+  },
+  
+    getWithdrawEvents: function (card_number, account_number, callback) {
+        return db.query(
+        'select event, amount, datetime from log where card_number=? AND account_number=? AND amount IS NOT ? ORDER BY datetime DESC',
+        [card_number, account_number, null],
+        callback);
+    },
 };
 module.exports = log;

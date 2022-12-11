@@ -24,8 +24,8 @@ private slots:
     int GetBalance();
     void Withdraw();
     void LogWithdraw();
-    void on_nosto2Button_clicked();
-     void KirjauduUlos2();
+    void on_withdrawButton_clicked();
+    void Logout();
 
 private:
     Ui::WithdrawWindow *ui;
@@ -42,8 +42,7 @@ private:
     QNetworkReply *withdrawReply;
     QNetworkReply *logReply;
     QByteArray withdrawResponse;
-      QTimer * laskuri;
-        int sec = 5;
+    QTimer *timer;
 
     int withdrawAmount;
 };

@@ -38,13 +38,6 @@ const card = {
         return db.query('select ct.type from card_type ct join card c on ct.id = c.card_type_id where c.card_number=?', [card_number], callback);
     },
 	
-	getWithdrawEvents: function (card_number, account_number, callback) {
-		return db.query(
-		'select event, amount, datetime from log where card_number=? AND account_number=? AND amount IS NOT ?',
-		[card_number, account_number, null],
-		callback);
-	},
-	
     getCardAccountNumber: function (card_number, is_debit, callback) {
         if (is_debit == 1) {
 		    return db.query(
