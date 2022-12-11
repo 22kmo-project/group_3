@@ -29,7 +29,7 @@ void EventsWindow::on_BackButton_clicked()
 void EventsWindow::getEventsLog()
 {
     QString siteUrl = "";
-    siteUrl = "http://localhost:3000/card-log/"+myCardNumber+"/"+myAccountNumber;
+    siteUrl = Url::getBaseUrl() + "/card-log/"+myCardNumber+"/"+myAccountNumber;
     QNetworkRequest request((siteUrl));
 
     request.setRawHeader(QByteArray("Authorization"),(webToken));

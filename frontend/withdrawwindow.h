@@ -7,6 +7,8 @@
 #include <QJsonDocument>
 #include <QValidator>
 
+#include "url.h"
+
 namespace Ui {
 class WithdrawWindow;
 }

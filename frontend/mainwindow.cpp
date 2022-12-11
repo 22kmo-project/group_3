@@ -64,7 +64,7 @@ void MainWindow::openMenuWindow()
 QString MainWindow::getCardType()
 {
     QString cardType = "unknown";
-    QString siteUrl="http://localhost:3000/card/type/"+cardNumber;
+    QString siteUrl = Url::getBaseUrl() + "/card/type/" + cardNumber;
     QNetworkRequest request((siteUrl));
 
     request.setRawHeader(QByteArray("Authorization"),("Bearer " + webToken));
@@ -91,9 +91,9 @@ void MainWindow::getAccountNumber()
 {
     QString siteUrl = "";
     if (cardType == "debit") {
-        siteUrl="http://localhost:3000/card-account/"+cardNumber+"/1";
+        siteUrl = Url::getBaseUrl() + "/card-account/"+cardNumber+"/1";
     } else {
-        siteUrl="http://localhost:3000/card-account/"+cardNumber+"/0";
+        siteUrl = Url::getBaseUrl() + "/card-account/"+cardNumber+"/0";
     }
     QNetworkRequest request((siteUrl));
 
@@ -133,7 +133,7 @@ void MainWindow::on_loginButton_clicked()
     jsonObj.insert("card_number", cardNumber);
     jsonObj.insert("pin", pin);
 
-    QString site_url="http://localhost:3000/login";
+    QString site_url = Url::getBaseUrl() + "/login";
     QNetworkRequest request((site_url));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 

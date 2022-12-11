@@ -32,7 +32,7 @@ void WithdrawWindow::on_backButton_clicked()
 int WithdrawWindow::GetBalance()
 {
     int balance = 0;
-    QString siteUrl = "http://localhost:3000/account/balance/" + myAccountNumber;
+    QString siteUrl = Url::getBaseUrl() + "/account/balance/" + myAccountNumber;
 
     if (myCardType == "credit") {
         siteUrl += "/1";
@@ -71,7 +71,7 @@ int WithdrawWindow::GetBalance()
 
 void WithdrawWindow::Withdraw()
 {
-    QString siteUrl = "http://localhost:3000/account/withdraw/" + myAccountNumber;
+    QString siteUrl = Url::getBaseUrl() + "/account/withdraw/" + myAccountNumber;
 
     bool useCredit;
     if (myCardType == "credit") {
@@ -105,7 +105,7 @@ void WithdrawWindow::Withdraw()
 
 void WithdrawWindow::LogWithdraw()
 {
-    QString siteUrl = "http://localhost:3000/log/";
+    QString siteUrl = Url::getBaseUrl() + "/log/";
 
     QNetworkRequest request((siteUrl));
 

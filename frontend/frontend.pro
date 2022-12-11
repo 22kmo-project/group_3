@@ -16,6 +16,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     menuwindow.cpp \
+    url.cpp \
     withdrawwindow.cpp
 
 HEADERS += \
@@ -24,6 +25,7 @@ HEADERS += \
     killcardwindow.h \
     mainwindow.h \
     menuwindow.h \
+    url.h \
     withdrawwindow.h
 
 FORMS += \

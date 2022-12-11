@@ -50,7 +50,7 @@ void KillCardWindow::on_confirmKillCard_clicked()
     jsonObj.insert("pin", pin);
     jsonObj.insert("is_active", is_active);
 
-    QString site_url="http://localhost:3000/card/killcard/"+myCardNumber+"";
+    QString site_url = Url::getBaseUrl() + "/card/killcard/"+myCardNumber+"";
     QNetworkRequest request((site_url));
 
     request.setRawHeader(QByteArray("Authorization"),(webToken));

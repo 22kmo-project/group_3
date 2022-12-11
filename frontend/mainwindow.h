@@ -7,6 +7,7 @@
 #include <QJsonDocument>
 
 #include "menuwindow.h"
+#include "url.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
