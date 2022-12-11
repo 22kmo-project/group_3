@@ -110,14 +110,22 @@ color: white;
     <widget class="QLabel" name="infoLabel">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>20</x>
        <y>100</y>
-       <width>501</width>
+       <width>531</width>
        <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>22</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
     <widget class="QPushButton" name="backButton">

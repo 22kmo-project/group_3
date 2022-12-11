@@ -141,6 +141,10 @@ void WithdrawWindow::on_withdrawButton_clicked()
         ui->infoLabel->setText("Noston enimmäismäärä on 1000 euroa");
         return;
     }
+    if (withdrawAmount < 10) {
+        ui->infoLabel->setText("Noston vähimmäismäärä on 10 euroa");
+        return;
+    }
     if (withdrawAmount % 10 != 0) {
         ui->infoLabel->setText("Syötä määrä 10 euron nousuilla");
         return;

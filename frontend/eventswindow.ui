@@ -87,6 +87,9 @@
      <pointsize>24</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">color : black;</string>
+   </property>
    <property name="text">
     <string>Tapahtumia ei löytynyt</string>
    </property>
