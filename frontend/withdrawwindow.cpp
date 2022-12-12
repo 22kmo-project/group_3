@@ -15,6 +15,8 @@ WithdrawWindow::WithdrawWindow(QByteArray token, QString cardNumber, QString acc
     myCardType = cardType;
 
     ui->nosto2LineEdit->setValidator(new QIntValidator(10, 1000, this));
+    ui->infoLabel2->setText("");
+    ui->stackedWidget->setCurrentIndex(2);
 }
 
 WithdrawWindow::~WithdrawWindow()
@@ -24,8 +26,7 @@ WithdrawWindow::~WithdrawWindow()
 
 void WithdrawWindow::on_backButton_clicked()
 {
-    this->close();
-    delete this;
+    ui->stackedWidget->setCurrentIndex(2);
 }
 
 
@@ -165,3 +166,80 @@ void WithdrawWindow::Logout()
 {
     this->done(QDialog::Accepted);
 }
+
+void WithdrawWindow::on_pushButton_2_clicked()
+{
+    withdrawAmount = 20;
+    int balance = this->GetBalance();
+    if (balance >= withdrawAmount) {
+        this->Withdraw();
+        timer = new QTimer(this);
+        connect(timer, SIGNAL(timeout()), this, SLOT(Logout()));
+        timer->start(3000);
+        ui->stackedWidget->setCurrentIndex(1);
+    } else {
+        ui->infoLabel2->setText("Tilin saldo ei ole riittävä");
+    }
+}
+
+
+void WithdrawWindow::on_pushButton_3_clicked()
+{
+    withdrawAmount = 40;
+    int balance = this->GetBalance();
+    if (balance >= withdrawAmount) {
+        this->Withdraw();
+        timer = new QTimer(this);
+        connect(timer, SIGNAL(timeout()), this, SLOT(Logout()));
+        timer->start(3000);
+        ui->stackedWidget->setCurrentIndex(1);
+    } else {
+        ui->infoLabel2->setText("Tilin saldo ei ole riittävä");
+    }
+}
+
+
+void WithdrawWindow::on_pushButton_4_clicked()
+{
+    withdrawAmount = 50;
+    int balance = this->GetBalance();
+    if (balance >= withdrawAmount) {
+        this->Withdraw();
+        timer = new QTimer(this);
+        connect(timer, SIGNAL(timeout()), this, SLOT(Logout()));
+        timer->start(3000);
+        ui->stackedWidget->setCurrentIndex(1);
+    } else {
+        ui->infoLabel2->setText("Tilin saldo ei ole riittävä");
+    }
+}
+
+
+void WithdrawWindow::on_pushButton_5_clicked()
+{
+    withdrawAmount = 100;
+    int balance = this->GetBalance();
+    if (balance >= withdrawAmount) {
+        this->Withdraw();
+        timer = new QTimer(this);
+        connect(timer, SIGNAL(timeout()), this, SLOT(Logout()));
+        timer->start(3000);
+        ui->stackedWidget->setCurrentIndex(1);
+    } else {
+        ui->infoLabel2->setText("Tilin saldo ei ole riittävä");
+    }
+}
+
+
+void WithdrawWindow::on_pushButton_6_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+
+void WithdrawWindow::on_pushButton_7_clicked()
+{
+    this->close();
+    delete this;
+}
+
