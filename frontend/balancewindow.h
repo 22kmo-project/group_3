@@ -23,7 +23,7 @@ public:
 private slots:
     void on_backButton_clicked();
     void GetBalance();
-
+    void CloseWindow();
 
 private:
     Ui::BalanceWindow *ui;
@@ -38,6 +38,7 @@ private:
     QNetworkReply *logReply;
     QByteArray balanceResponse;
 
+    QTimer * closeWindowTimer;
 };
 
 #endif // BALANCEWINDOW_H

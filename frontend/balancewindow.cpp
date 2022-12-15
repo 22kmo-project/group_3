@@ -11,6 +11,12 @@ BalanceWindow::BalanceWindow(QByteArray token, QString accountNumber, QString ca
     webToken = token;
     myAccountNumber = accountNumber;
     myCardType = cardType;
+
+    closeWindowTimer = new QTimer(this);
+    connect(closeWindowTimer, SIGNAL(timeout()), this, SLOT(CloseWindow()));
+    connect(this, SIGNAL(destroyed()), parent, SLOT(resetForceLogoutTimer()));
+    closeWindowTimer->start(1000 * 10);
+
     this->GetBalance();
 }
 
@@ -65,6 +71,12 @@ void BalanceWindow::GetBalance()
     balanceManager->deleteLater();
 
     ui->lineEdit->setText(balance);
+}
+
+void BalanceWindow::CloseWindow()
+{
+    this->close();
+    delete this;
 }
 
 

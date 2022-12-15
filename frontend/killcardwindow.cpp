@@ -13,6 +13,11 @@ KillCardWindow::KillCardWindow(QByteArray token, QString cardNumber, QWidget *pa
     myCardNumber = cardNumber;
     webToken = token;
     ui->stackedWidget->setCurrentIndex(0);
+
+    closeWindowTimer = new QTimer(this);
+    connect(closeWindowTimer, SIGNAL(timeout()), this, SLOT(CloseWindow()));
+    connect(this, SIGNAL(destroyed()), parent, SLOT(resetForceLogoutTimer()));
+    closeWindowTimer->start(1000 * 10);
 }
 
 KillCardWindow::~KillCardWindow()
@@ -22,6 +27,7 @@ KillCardWindow::~KillCardWindow()
 
 void KillCardWindow::on_confirmYesButton_clicked()
 {
+    closeWindowTimer->start(1000 * 10);
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -40,6 +46,7 @@ void KillCardWindow::on_cancelKillCard_clicked()
 
 void KillCardWindow::on_confirmKillCard_clicked()
 {
+    closeWindowTimer->start(1000 * 10);
     //Kortin lukitus
     int is_active = 0;
 
@@ -65,6 +72,7 @@ void KillCardWindow::on_confirmKillCard_clicked()
 
 void KillCardWindow::lukitaSlot(QNetworkReply *reply)
 {
+    closeWindowTimer->stop();
     if(reply->error()==QNetworkReply::NoError)
     {
     response_data = reply->readAll();
@@ -81,10 +89,12 @@ void KillCardWindow::lukitaSlot(QNetworkReply *reply)
         ui->label_pin->setText("PIN väärin");
         qInfo() << "PIN väärin";
     }
+    closeWindowTimer->start(1000 * 10);
 }
 
 void KillCardWindow::KillCardKilled()
 {
+    closeWindowTimer->stop();
     sec--;
     if(sec==-1)
     {
@@ -94,4 +104,10 @@ void KillCardWindow::KillCardKilled()
     }
     else
     ui->label_8->setText(QString("Sivu sulkeutuu: %1").arg(sec));
+}
+
+void KillCardWindow::CloseWindow()
+{
+    this->close();
+    delete this;
 }

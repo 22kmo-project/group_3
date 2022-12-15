@@ -25,6 +25,7 @@ private slots:
     void eventsSlot(QNetworkReply *reply);
     void getEventsLog();
     void configureEventLogTable(int rowCount);
+    void CloseWindow();
 
 private:
     Ui::EventsWindow *ui;
@@ -33,6 +34,7 @@ private:
     QString myCardNumber;
     QString myAccountNumber;
     QByteArray webToken;
+    QTimer * closeWindowTimer;
 };
 
 #endif // EVENTSWINDOW_H

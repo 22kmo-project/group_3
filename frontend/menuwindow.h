@@ -27,6 +27,7 @@ public:
 
 public slots:
     void logout();
+    void resetForceLogoutTimer();
 
 private slots:
     void on_logoutButton_clicked();
@@ -53,6 +54,7 @@ private:
     QNetworkReply *reply;
     QByteArray response_data;
     QTimer * timer;
+    QTimer * forceLogoutTimer;
     int logoutSeconds;
 };
 
