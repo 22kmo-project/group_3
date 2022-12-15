@@ -28,6 +28,7 @@ private slots:
     void LogWithdraw();
     void on_withdrawButton_clicked();
     void Logout();
+    void CloseWindow();
 
     void on_pushButton_2_clicked();
 
@@ -57,6 +58,7 @@ private:
     QNetworkReply *logReply;
     QByteArray withdrawResponse;
     QTimer *timer;
+    QTimer * closeWindowTimer;
 
     int withdrawAmount;
 };

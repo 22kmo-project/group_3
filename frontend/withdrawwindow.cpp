@@ -17,6 +17,11 @@ WithdrawWindow::WithdrawWindow(QByteArray token, QString cardNumber, QString acc
     ui->nosto2LineEdit->setValidator(new QIntValidator(10, 1000, this));
     ui->infoLabel2->setText("");
     ui->stackedWidget->setCurrentIndex(2);
+
+    closeWindowTimer = new QTimer(this);
+    connect(closeWindowTimer, SIGNAL(timeout()), this, SLOT(CloseWindow()));
+    connect(this, SIGNAL(destroyed()), parent, SLOT(resetForceLogoutTimer()));
+    closeWindowTimer->start(1000 * 10);
 }
 
 WithdrawWindow::~WithdrawWindow()
@@ -72,6 +77,7 @@ int WithdrawWindow::GetBalance()
 
 void WithdrawWindow::Withdraw()
 {
+    closeWindowTimer->stop();
     QString siteUrl = Url::getBaseUrl() + "/account/withdraw/" + myAccountNumber;
 
     bool useCredit;
@@ -102,6 +108,7 @@ void WithdrawWindow::Withdraw()
     withdrawReply->deleteLater();
     withdrawManager->deleteLater();
     LogWithdraw();
+    closeWindowTimer->start(1000 * 10);
 }
 
 void WithdrawWindow::LogWithdraw()
@@ -135,6 +142,7 @@ void WithdrawWindow::LogWithdraw()
 
 void WithdrawWindow::on_withdrawButton_clicked()
 {
+    closeWindowTimer->start(1000 * 10);
     ui->infoLabel->setText("");
     QString withdrawAmountString = ui->nosto2LineEdit->text();
     withdrawAmount = withdrawAmountString.toInt();
@@ -169,6 +177,7 @@ void WithdrawWindow::Logout()
 
 void WithdrawWindow::on_pushButton_2_clicked()
 {
+    closeWindowTimer->start(1000 * 10);
     withdrawAmount = 20;
     int balance = this->GetBalance();
     if (balance >= withdrawAmount) {
@@ -185,6 +194,7 @@ void WithdrawWindow::on_pushButton_2_clicked()
 
 void WithdrawWindow::on_pushButton_3_clicked()
 {
+    closeWindowTimer->start(1000 * 10);
     withdrawAmount = 40;
     int balance = this->GetBalance();
     if (balance >= withdrawAmount) {
@@ -201,6 +211,7 @@ void WithdrawWindow::on_pushButton_3_clicked()
 
 void WithdrawWindow::on_pushButton_4_clicked()
 {
+    closeWindowTimer->start(1000 * 10);
     withdrawAmount = 50;
     int balance = this->GetBalance();
     if (balance >= withdrawAmount) {
@@ -217,6 +228,7 @@ void WithdrawWindow::on_pushButton_4_clicked()
 
 void WithdrawWindow::on_pushButton_5_clicked()
 {
+    closeWindowTimer->start(1000 * 10);
     withdrawAmount = 100;
     int balance = this->GetBalance();
     if (balance >= withdrawAmount) {
@@ -233,6 +245,7 @@ void WithdrawWindow::on_pushButton_5_clicked()
 
 void WithdrawWindow::on_pushButton_6_clicked()
 {
+    closeWindowTimer->start(1000 * 10);
     ui->stackedWidget->setCurrentIndex(0);
 }
 
@@ -243,3 +256,8 @@ void WithdrawWindow::on_pushButton_7_clicked()
     delete this;
 }
 
+void WithdrawWindow::CloseWindow()
+{
+    this->close();
+    delete this;
+}

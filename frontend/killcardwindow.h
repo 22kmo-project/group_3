@@ -29,6 +29,7 @@ private slots:
     void lukitaSlot(QNetworkReply *reply);
     void KillCardKilled();
     void on_cancelKillCard_clicked();
+    void CloseWindow();
 
 private:
     Ui::KillCardWindow *ui;
@@ -38,6 +39,7 @@ private:
     QByteArray webToken;
     QString myCardNumber;
     QTimer * Timer;
+    QTimer * closeWindowTimer;
     int sec = 5;
 };
 

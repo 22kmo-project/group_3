@@ -12,6 +12,12 @@ EventsWindow::EventsWindow(QByteArray token, QString cardNumber, QString account
     myAccountNumber = accountNumber;
     webToken = token;
     ui->noEventsLabel->setVisible(false);
+
+    closeWindowTimer = new QTimer(this);
+    connect(closeWindowTimer, SIGNAL(timeout()), this, SLOT(CloseWindow()));
+    connect(this, SIGNAL(destroyed()), parent, SLOT(resetForceLogoutTimer()));
+    closeWindowTimer->start(1000 * 10);
+
     this->getEventsLog();
 }
 
@@ -84,3 +90,8 @@ void EventsWindow::configureEventLogTable(int rowCount)
     ui->eventLogTableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
+void EventsWindow::CloseWindow()
+{
+    this->close();
+    delete this;
+}
